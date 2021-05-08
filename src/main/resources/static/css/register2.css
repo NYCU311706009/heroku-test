@@ -1,0 +1,251 @@
+body{
+    margin: 0;
+    z-index: 0;
+    background-color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/*選單*/
+#top_container{
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    z-index: 100;
+    position: fixed;
+    background-color: white;
+    box-shadow: #666 0 0 5px;
+    box-sizing: border-box;
+}
+#top_left{
+    position: absolute;
+	top: 75%;
+	left: 10%;
+	transform: translate(0, -85%);
+}
+#top_left li{
+    display: inline;
+    position: relative;
+    margin-right: 30px;
+    left: 18px;
+    bottom: 28.5px;
+}
+#top_left li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: gray;
+}
+#top_left li a:hover{
+    color: #212121;
+}
+#top_right{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+}
+.fa-user-circle{
+    font-size: 30px;
+    color: gray;
+}
+#top_right li{
+    display: inline;
+    position: relative;
+    margin-right: 10px;
+    left: 15px;
+    top: -3.5px;
+    font-size: 18px;
+    color: gray;
+}
+#top_right li a{
+    text-decoration: none;
+    color: gray;
+}
+#top_right li a:hover{
+    color: #212121;
+}
+#blocker{
+    padding-top: 75px;
+}
+
+/*會員註冊*/
+#register{
+    width: 100%;
+    height: 745px;
+}
+#register_container{
+    width: 26%;
+    height: 410px;
+    position: relative;
+    top: 100px;
+    left: 37%;
+    background-color: #EEEEEE;
+    box-sizing: border-box;
+}
+#register_container>p{
+    position: relative;
+    top: 50px;
+    text-align: center;
+    font-size: 42px;
+}
+.register_containers{
+    position: relative;
+    left: 9.5%;
+    top: 50px;
+    margin-bottom: 20px;
+}
+::-webkit-input-placeholder { /* Chrome, Safari */
+    color: gray;
+	font-weight: bolder;
+}
+.register_input{
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    height: 50px;
+    border: 2px solid #BCA7A7;
+    border-radius: 3px;
+    color: black;
+    outline: none;
+    font-size: 18px;
+    text-indent: 13%;
+}
+.register_containers>i{
+    position: absolute;
+    z-index: 2;
+	font-size: 24px;
+	top: 25%;
+    left: 3%;
+    color: gray;
+}
+#register_agree{
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+#register_agree p{
+    display: inline;
+}
+#register_agree a{
+    text-decoration: none;
+    color: #3e6b93;
+}
+#register_agree a:hover{
+    color: rgb(0, 32, 126);
+}
+#register_submit{
+    position: relative;
+    left: 10%;
+    top: 80px;
+}
+#register_submit_input{
+    width: 80%;
+    height: 40px;
+	font-size: 20px;
+	color: black;
+	font-weight: bolder;
+	border: 2px solid #BCA7A7;
+    border-radius: 3px;
+}
+#register_submit_input:hover{
+	box-shadow: 0px 0px 5px 0px #AAAAAA;
+	-webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    border: 1px solid #000000;
+    color: whitesmoke;
+    background-color: #212121;
+    opacity: 0.8;
+}
+.register_icon_valid>i{
+	display: none;
+}
+.register_containers>input:required:valid+.register_icon_valid>.fa-check-circle{
+	display: inline;
+	position: absolute;
+    z-index: 2;
+	font-size: 24px;
+	left: 70%;
+	bottom: 28%;
+	color: green;
+}
+.register_containers>input:focus:required:invalid+.register_icon_valid>.fa-times-circle{
+	display: inline;
+	position: absolute;
+    z-index: 2;
+	font-size: 24px;
+	left: 70%;
+	bottom: 28%;
+	color: red;
+}
+
+/*底部*/
+#bottom{
+    width: 100%;
+	height: 75px;
+    position: relative;
+	box-sizing: border-box;
+    box-shadow: #666 0 0 1px;
+    background-color: #F3F3F3;
+}
+#bottom_container{
+    width: 80%;
+    height: 75px;
+    position: relative;
+    left: 10%;
+}
+#bottom_left{
+    width: 380px;
+    position: relative;
+    top: 10px;
+    float: left;
+}
+#bottom_left li{
+    display: inline;
+    color: gray;
+    margin-right: 2px;
+}
+#bottom_left a{
+    text-decoration: none;
+    color: gray;
+}
+#bottom_left a:hover{
+    color: #212121;
+}
+#bottom_right{
+    width: 550px;
+    position: relative;
+    top: 10px;
+    float: right;
+    color: gray;
+}
+
+@media screen and (max-width: 1350px) {
+    /*選單*/
+    #top_left{
+        left: 0%;
+    }
+    #top_left li{
+        margin-right: 20px;
+        left: 5px;
+    }
+    #top_right{
+        right: 3%;
+    }
+    /*會員註冊*/
+    #register_container{
+        width: 40%;
+        height: 380px;
+        left: 30%;
+    }
+    #register_container>p{
+        font-size: 37px;
+    }
+    .register_containers>i{
+        top: 28%;
+        left: 3.5%;
+    }
+    /*底部*/
+    #bottom_container{
+        width: 99.8%;
+        left: 0.1%;
+    }
+}

@@ -1,0 +1,609 @@
+body{
+    margin: 0;
+    z-index: 0;
+    background-color: whitesmoke;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+/*選單*/
+.backgrounds{
+    background: no-repeat;
+    background-image: -webkit-cross-fade(url("../img/transparent_homepage.png"), url("../img/background_homepage.jpg"), 30%);
+    background-size: cover;
+    background-color: black;
+}
+#top_container{
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    z-index: 2;
+    position: fixed;
+    background-color: #212121;
+    opacity: 0.8;
+    box-shadow: #F7BC00 0 0 1px;
+    box-sizing: border-box;
+}
+#top_left{
+    position: absolute;
+	top: 75%;
+	left: 10%;
+	transform: translate(0, -85%);
+}
+#top_left li{
+    display: inline;
+    position: relative;
+    margin-right: 30px;
+    left: 18px;
+    bottom: 28.5px;
+}
+#top_left li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(174, 164, 164);
+}
+#top_left li a:hover{
+    color: whitesmoke;
+}
+#top_right{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+}
+.fa-user-circle{
+    font-size: 30px;
+    color: rgb(174, 164, 164);
+}
+#top_right li{
+    display: inline;
+    position: relative;
+    margin-right: 10px;
+    left: 15px;
+    top: -3.5px;
+    font-size: 18px;
+    color: rgb(174, 164, 164);
+}
+#top_right li a{
+    text-decoration: none;
+    color: rgb(174, 164, 164);
+}
+#top_right li a:hover{
+    color: whitesmoke;
+}
+/*開頭介紹*/
+#intro{
+    width: 100%;    
+    height: 950px;
+    position: relative;
+}
+#intro_container{
+    width: 80%;
+    display: flex;
+    position: relative;
+    top: 15%;
+    left: 10%;
+}
+#intro article{
+    width: 60%;
+    position: relative;
+}
+#intro_title p{
+    font-size: 90px;
+    color: whitesmoke;
+}
+#intro_title_1{
+    position: relative;
+    bottom: 50px;
+}
+#intro_title_2{
+    position: relative;
+    left: 120px;
+    bottom: 100px;
+}
+#intro_text{
+    position: relative;
+    bottom: 120px;
+}
+#intro_text p{
+    font-size: 28px;
+    color: whitesmoke;
+}
+#intro_text a{
+    font-size: 28px;
+    color: whitesmoke;
+}
+#intro_text a:hover{
+    color: red;
+}
+#intro aside{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    top: 100px;
+    left: 50px;
+}
+#intro aside img{
+    border-radius: 30px;
+    border-style: none;
+}
+/*試算功能*/
+#calculate{
+    width: 100%;
+    position: relative;
+    top: 20px;
+}
+#calculate_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+#calculate_title{
+    width: 50%;
+}
+#calculate_title p{
+    font-size: 50px;
+    color: black;
+}
+.est{
+    width: 80%;
+    height: 80%;
+    position: relative;
+    left: 10%;
+    top: -100px;
+    margin-bottom: -50px;
+    background-color: rgb(237, 236, 236);
+    z-index: 0;
+}
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+#calculate_button{
+    width: 500px;
+}
+#calculate_button button{
+    position: relative;
+    z-index: 1;
+    left: 100px;
+    width: 160px;
+	height: 40px;
+	font-size: 18px;
+	color: black;
+	border: 2px solid #BCA7A7;
+    border-radius: 3px;
+}
+#calculate_button button:hover{
+	box-shadow: 0px 0px 5px 0px #AAAAAA;
+	-webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    -moz-box-shadow: 0px 0px 5px 0px #AAAAAA;
+    border: 1px solid #AAAAAA;
+}
+#calculate_button>.fa-lightbulb{
+    position: relative;
+    z-index: 1;
+    left: 120px;
+}
+#calculate_button p{
+    position: relative;
+    z-index: 1;
+    top: -47px;
+    left: 300px;
+}
+/*
+#calculate_more a{
+    position: relative;
+    float: right;
+    right: 10%;
+    font-size: 42px;
+    color: black;
+}
+#calculate_more a:hover{
+    color: red;
+}*/
+/*期貨原理*/
+#future{
+    width: 100%;
+    height: 800px;
+    background-color: #212121;
+}
+#future_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 80px;
+}
+#future_container>p{
+    font-size: 50px;
+    color: whitesmoke;
+}
+#future_container>div{
+    display: flex;
+    justify-content: space-around;
+}
+#future_container>div>aside>img{
+    border-radius: 18px;
+    border-style: none;
+}
+#future_container>div>article{
+    width: 800px;
+    position: relative;
+    top: 15px;
+}
+#future_container>div>article p{
+    font-size: 41px;
+    display: inline;
+    color: whitesmoke;
+}
+#future_container>a{
+    position: relative;
+    right: 3%;
+    float: right;
+    font-size: 42px;
+    color: whitesmoke;
+}
+#future_container>a:hover{
+    color: red;
+}
+/*兌換油資*/
+#oil{
+    width: 100%;
+    height: 750px;
+}
+#oil_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 20px;
+}
+#oil_container>p{
+    font-size: 50px;
+    color: black;
+}
+#oil_container>div{
+    display: flex;
+    justify-content: flex-start;
+}
+#oil_container>div>article{
+    width: 700px;
+}
+#oil_container>div>article p{
+    position: relative;
+    top: 30px;
+    font-size: 41px;
+    display: inline;
+    color: black;
+}
+#oil_container>div>article li{
+    position: relative;
+    top: 80px;
+    font-size: 24px;
+    list-style: none;
+}
+#oil_container>div>aside{
+    position: relative;
+    left: 5%;
+}
+#oil_container>div>aside>img{
+    border-radius: 18px;
+    border-style: none;
+}
+#oil_container>a{
+    position: relative;
+    top: 40px;
+    right: 3%;
+    float: right;
+    font-size: 42px;
+    color: black;
+}
+#oil_container>a:hover{
+    color: red;
+}
+/*量化分析*/
+#regression{
+    width: 100%;
+    height: 800px;
+    background-color: #212121;
+}
+#regression_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 60px;
+}
+#regression_container>p{
+    font-size: 50px;
+    color: whitesmoke;
+}
+#regression_container>div{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 30px;
+}
+#regression_container>div>aside>img{
+    border-radius: 18px;
+    border-style: none;
+}
+#regression_container>div>article{
+    width: 580px;
+    position: relative;
+    left: 17%;
+    bottom: 40px;
+}
+#regression_container>div>article p{
+    font-size: 41px;
+    color: whitesmoke;
+}
+#regression_container>a{
+    position: relative;
+    right: 5%;
+    float: right;
+    font-size: 36px;
+    color: whitesmoke;
+}
+#regression_container>a:hover{
+    color: red;
+}
+/*相關新聞*/
+#news{
+    width: 100%;
+    height: 700px;
+}
+#news_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 20px;
+}
+#news_container>p{
+    font-size: 50px;
+    color: black;
+}
+#news_container>div{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 30px;
+}
+#news_container>div>article{
+    width: 750px;
+    position: relative;
+    top: 30px;
+}
+#news_container>div>article li{
+    list-style: none;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+#news_container>div>aside{
+    position: relative;
+    left: 4%;
+}
+#news_container>div>aside>img{
+    border-radius: 18px;
+    border-style: none;
+}
+#news_container>a{
+    position: relative;
+    top: 40px;
+    left: 37%;
+    font-size: 24px;
+}
+#news_container>a:hover{
+    color: red;
+}
+/*聯絡我們*/
+#contact{
+    width: 100%;
+    height: 750px;
+    background-color: #212121;
+}
+#contact_container{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    top: 80px;
+}
+#contact_container>p{
+    font-size: 50px;
+    color: whitesmoke;
+}
+#contact_container>div{
+    display: flex;
+    justify-content: flex-start;
+}
+#contact_container>div>aside>img{
+    border-radius: 18px;
+    border-style: none;
+}
+#contact_container>div>article{
+    position: relative;
+    left: 5%;
+}
+#contact_container>div>article>p{
+    font-size: 32px;
+    color: whitesmoke;
+}
+#contact_container>div>article>div{
+    margin-bottom: 50px;
+}
+.fa-phone ,.fa-envelope-open-text, .fa-building{
+    font-size: 32px;
+    color: green;
+}
+#contact_phone>a, #contact_mail>a, #contact_address>a{
+    display: inline;
+    text-decoration: none;
+    position: relative;
+    left: 30px;
+    font-size: 32px;
+    color: green;
+}
+#qrcode{
+    position: relative;
+    top: 70px;
+    left: 10%;
+}
+#qrcode>p{
+    position: relative;
+    left: 10px;
+    font-size: 20px;
+    color: green;
+}
+/*底部*/
+#bottom{
+    width: 100%;
+	height: 75px;
+	background: #212121;
+	box-sizing: border-box;
+    box-shadow: #F7BC00 0 0 1px;
+}
+#bottom_container{
+    width: 80%;
+    height: 75px;
+    position: relative;
+    left: 10%;
+}
+#bottom_left{
+    width: 380px;
+    position: relative;
+    top: 10px;
+    float: left;
+}
+#bottom_left li{
+    display: inline;
+    color: rgb(174, 164, 164);
+    margin-right: 2px;
+}
+#bottom_left a{
+    text-decoration: none;
+    color: rgb(174, 164, 164);
+}
+#bottom_left a:hover{
+    color: white;
+}
+#bottom_right{
+    width: 550px;
+    position: relative;
+    top: 10px;
+    float: right;
+    color: rgb(174, 164, 164);
+}
+
+@media screen and (max-width: 1800px) {
+    /*選單*/
+    #top_left{
+        left: 0%;
+    }
+    #top_left li{
+        margin-right: 20px;
+        left: 5px;
+    }
+    #top_right{
+        right: 3%;
+    }
+    /*期貨原理*/
+    #future{
+        height: 650px;
+    }
+    #future_container>div>aside>img{
+        width: 95%;
+    }
+    #future_container>div>article{
+        left: 4%;
+    }
+    #future_container>div>article p{
+        font-size: 31px;
+    }
+    #future_container>a{
+        right: 0.1%;
+        font-size: 31px;
+    }
+    /*兌換油資*/
+    #oil{
+        height: 550px;
+    }
+    #oil_container>div>article{
+        width: 750px;
+        margin-right: 5%;
+    }
+    #oil_container>div>article p{
+        font-size: 31px;
+    }
+    #oil_container>div>article li{
+        font-size: 18px;
+    }
+    #oil_container>div>aside>img{
+        width: 95%;
+    }
+    #oil_container>a{
+        top: 20px;
+        font-size: 24px;
+    }
+    /*量化分析*/
+    #regression{
+        height: 700px;
+    }
+    #regression_container>div>aside>img{
+        width: 550px;
+    }
+    #regression_container>div>article{
+        position: relative;
+        left: 10%;
+    }
+    #regression_container>div>article p{
+        font-size: 31px;
+    }
+    #regression_container>a{
+        font-size: 24px;
+    }
+    /*相關新聞*/
+    #news{
+        height: 640px;
+    }
+    #news_container>div>article{
+        width: 550px;
+    }
+    #news_container>div>article li{
+        font-size: 26px;
+    }
+    #news_container>div>aside{
+        left: 12%;
+    }
+    #news_container>div>aside>img{
+        width: 80%;
+    }
+    #news_container>a{
+        left: 36%;
+        font-size: 18px;
+    }
+    /*聯絡我們*/
+    #contact{
+        height: 650px;
+    }
+    #contact_container>div>aside{
+        position: relative;
+        margin-left: -50px;
+    }
+    #contact_container>div>aside>img{
+        width: 500px;
+    }
+    #contact_container>div>article>p{
+        font-size: 24px;
+    }
+    .fa-phone ,.fa-envelope-open-text, .fa-building{
+        font-size: 24px;
+    }
+    #contact_phone>a, #contact_mail>a, #contact_address>a{
+        font-size: 24px;
+    }
+    #qrcode{
+        position: relative;
+        top: 30px;
+    }
+    /*底部*/
+    #bottom_container{
+        width: 99.8%;
+        left: 0.1%;
+    }
+}
