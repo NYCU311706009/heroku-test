@@ -14,11 +14,11 @@ class DemoApplicationTests {
     private PasswordEncoder passwordEncoder;
     @Autowired
     CustomerRepository customerRepository;
-    @Test
-    void contextLoads() {
-        Customer c = new Customer("ccc",passwordEncoder.encode("ccc"));
-        c.setRole("admin");
-        customerRepository.save(c);
-    }
+//    @Test
+//    void contextLoads() {
+//        Customer c = new Customer("ccc",passwordEncoder.encode("ccc"));
+//        c.setRole("admin");
+//        customerRepository.save(c);
+//    }
 
 }

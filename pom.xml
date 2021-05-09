@@ -80,6 +80,7 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <!--https://morioh.com/p/xWmnEHhoWDqX-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

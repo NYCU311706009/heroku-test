@@ -42,10 +42,10 @@
     <main id="register">
         <div id="register_container">
             <p>填寫註冊資料</p>
-			<form th:object="${customer}" th:action="@{/register}" method="post">
+			<form  th:action="@{/register}" method="post">
                 <div class="register_containers">
                     <i class="fas fa-user-alt"></i>
-                    <input class="register_input" type="account" th:field="*{username}" name="username" placeholder="帳號" pattern="[a-zA-Z0-9]{8,12}"
+                    <input class="register_input" type="account" name="account"  placeholder="帳號" pattern="[a-zA-Z0-9]{8,12}"
                     onchange="this.setCustomValidity(this.validity.patternMismatch ? '帳號格式錯誤' : '');" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="register_containers">
                     <i class="fas fa-key"></i>
-                    <input class="register_input" type="password" th:field="*{password}" name="password" placeholder="密碼" pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$" minlength="8" maxlength="12"
+                    <input class="register_input" type="password" name="password"  placeholder="密碼" pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$" minlength="8" maxlength="12"
                     onchange="this.setCustomValidity(this.validity.patternMismatch ? '密碼格式錯誤' : ''); if(this.checkValidity()) form.password_two.pattern = this.value" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -81,7 +81,7 @@
                 </div>
 				<div class="register_containers">
                     <i class="fas fa-file-signature"></i>
-                    <input class="register_input" type="text" name="name" placeholder="姓名" required />
+                    <input class="register_input" type="text" name="username" placeholder="姓名" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
 						<div>
@@ -92,7 +92,7 @@
                 </div>
 				<div class="register_containers">
 					<i class="far fa-calendar-alt"></i>
-                    <input class="register_input" type="text" name="birth" placeholder="生日" onfocus="(this.type='date')" min="1921-04-10" max="2021-07-01" required />
+                    <input class="register_input" type="text" name="birth"  placeholder="生日" onfocus="(this.type='date')" min="1921-04-10" max="2021-07-01" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
 						<div>
@@ -103,7 +103,7 @@
                 </div>
 				<div class="register_containers">
 					<i class="fas fa-fingerprint"></i>
-                    <input class="register_input id_input" type="text" name="Zid" placeholder="身分證字號" pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$"
+                    <input class="register_input id_input" type="text" name="twId" placeholder="身分證字號" pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$"
                     onchange="this.setCustomValidity(this.validity.patternMismatch ? '身分證字號格式錯誤' : '');" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -115,7 +115,7 @@
                 </div>
 				<div class="register_containers">
 					<i class="fas fa-mobile-alt"></i>
-                    <input class="register_input" type="tel" name="phone" placeholder="手機號碼" pattern="^09[0-9]{8}$" 
+                    <input class="register_input" type="tel" name="phone" placeholder="手機號碼" pattern="^09[0-9]{8}$"
                     onchange="this.setCustomValidity(this.validity.patternMismatch ? '手機號碼格式錯誤' : '');" required />
 					<div class="register_icon_valid">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
