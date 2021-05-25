@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="雲油，屬於您的雲端油艙。" />
+	<meta name="author" content="黃凱立 Kenny Huang" />
+	<meta name="keywords" content="雲油,期貨,避險,油價,石油,汽油 " />
+	<meta http-equiv="Content-Type" content="text/html" charset="uft-8" />
+	<meta http-equiv="Content-Language" content="zh-TW" />
+	<meta http-equiv="Refresh" content="time" />
+	<title>CloudOil</title>
+    <link rel=stylesheet type="text/css" href="css/register.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e20183103.js" crossorigin="anonymous"></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<!-- d3js用 -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav id="top_container">
+			<ul id="top_left">
+				<a href="index.html"><img src="img/logo_whitepage.png" width="150px" /></a>
+				<li><a href="about.html">關於雲油</a></li>
+				<li><a href="service.html">提供服務</a></li>
+				<li><a href="question.html">常見問題</a></li>
+				<li><a href="index.html#contact">聯絡我們</a></li>
+			</ul>
+			<ul id="top_right">
+				<div id="login_before">
+					<i class="fas fa-user-circle"></i>
+					<li><a href="login.html">登入</a></li>
+					<li>|</li>
+					<li><a href="register.html">註冊</a></li>
+				</div>
+				<div id="login_after">
+					<i class="fas fa-user-circle"></i>
+					<a>嗨！黃凱立</a>
+					<div class="dropdown-content">
+						<a href="myoil.html">我的油艙</a>
+						<a href="order.html">立即下單</a>
+						<a href="member.html">個人資料</a>
+						<a href="history,html">歷史訂單</a>
+						<a href="logout.html">登出</a>
+					</div>
+				</div>
+			</ul>
+		</nav>
+	</header>
+    <nav id="blocker"></nav>
+    <main id="register">
+        <div id="register_container">
+            <p>填寫註冊資料</p>
+            <form action="register2.html" method="POST">
+                <div class="register_containers">
+                    <i class="fas fa-user-alt"></i>
+                    <input class="register_input" type="account" name="account" placeholder="帳號" pattern="[a-zA-Z0-9]{8,12}" 
+                    onchange="this.setCustomValidity(this.validity.patternMismatch ? '帳號格式錯誤' : '');" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入8-12個字、由英文或數字組成的帳號</p>
+						</div>
+					</div>
+                </div>
+                <div class="register_containers">
+                    <i class="fas fa-key"></i>
+                    <input class="register_input" type="password" name="password" placeholder="密碼" pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$" minlength="8" maxlength="12"
+                    onchange="this.setCustomValidity(this.validity.patternMismatch ? '密碼格式錯誤' : ''); if(this.checkValidity()) form.password_two.pattern = this.value" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入8-12個字、英數字混和的密碼</p>
+						</div>
+					</div>
+                </div>
+				<div class="register_containers">
+                    <i class="fas fa-key"></i>
+                    <input class="register_input" type="password" name="password_two" placeholder="確認密碼"
+                    onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的密碼' : '');" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>再次輸入密碼</p>
+						</div>
+					</div>
+                </div>
+				<div class="register_containers">
+                    <i class="fas fa-file-signature"></i>
+                    <input class="register_input" type="text" name="name" placeholder="姓名" pattern="^[\u4E00-\u9FA5]{2,50}$" 
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的姓名' : '');" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入真實姓名</p>
+						</div>
+					</div>
+                </div>
+				<div class="register_containers">
+					<i class="far fa-calendar-alt"></i>
+                    <input class="register_input" type="text" name="birth" placeholder="生日" onfocus="(this.type='date')" min="1921-04-10" max="2021-07-01" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入出生年/月/日</p>
+						</div>
+					</div>
+                </div>
+				<div class="register_containers">
+					<i class="fas fa-fingerprint"></i>
+                    <input class="register_input id_input" type="text" name="Zid" placeholder="身分證字號" pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$"
+                    onchange="this.setCustomValidity(this.validity.patternMismatch ? '身分證字號格式錯誤' : '');" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入台灣身分證字號</p>
+						</div>
+					</div>
+                </div>
+				<div class="register_containers">
+					<i class="fas fa-mobile-alt"></i>
+                    <input class="register_input" type="tel" name="phone" placeholder="手機號碼" pattern="^09[0-9]{8}$" 
+                    onchange="this.setCustomValidity(this.validity.patternMismatch ? '手機號碼格式錯誤' : '');" required />
+					<div class="register_icon_valid">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						<div>
+							<i class="fas fa-lightbulb"></i>
+							<p>請輸入台灣手機號碼</p>
+						</div>
+					</div>
+                </div>
+				<div id="register_agree">
+					<input type="checkbox" required/>
+                    <p>您同意遵守</p>
+                    <a href="terms.html">服務條款</a>
+                    <p>及</p>
+                    <a href="rights.html">法律保護條款</a>
+                    <p>。</p>
+                </div>
+				<div id="register_submit">
+                    <input id="register_submit_input" type="submit" value="下一步" />
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+		<div id="bottom">
+			<div id="bottom_container">
+				<ul id="bottom_left">
+					<li><a href="disclaimer.html">免責聲明</a></li>
+					<li>|</li>
+					<li><a href="terms.html">服務條款</a></li>
+					<li>|</li>
+					<li><a href="privacy.html">隱私權說明</a></li>
+					<li>|</li>
+					<li><a href="rights.html">法律保護條款</a></li>
+				</ul>
+				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

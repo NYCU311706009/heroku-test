@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="雲油，屬於您的雲端油艙。" />
+	<meta name="author" content="黃凱立 Kenny Huang" />
+	<meta name="keywords" content="雲油,期貨,避險,油價,石油,汽油 " />
+	<meta http-equiv="Content-Type" content="text/html" charset="uft-8" />
+	<meta http-equiv="Content-Language" content="zh-TW" />
+	<meta http-equiv="Refresh" content="time" />
+	<title>CloudOil</title>
+    <link rel=stylesheet type="text/css" href="css/order5.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google字型-->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <!-- fontawesome圖示 -->
+    <script src="https://kit.fontawesome.com/2e20183103.js" crossorigin="anonymous"></script>
+    <!-- Google recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<!-- d3js用 -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav id="top_container">
+			<ul id="top_left">
+				<a href="index.html"><img src="img/logo_whitepage.png" width="150px" /></a>
+				<li><a href="about.html">關於雲油</a></li>
+				<li><a href="service.html">提供服務</a></li>
+				<li><a href="question.html">常見問題</a></li>
+				<li><a href="index.html#contact">聯絡我們</a></li>
+			</ul>
+			<ul id="top_right">
+				<div id="login_before">
+					<i class="fas fa-user-circle"></i>
+					<li><a href="login.html">登入</a></li>
+					<li>|</li>
+					<li><a href="register.html">註冊</a></li>
+				</div>
+				<div id="login_after">
+					<i class="fas fa-user-circle"></i>
+					<a>嗨！黃凱立</a>
+					<div class="dropdown-content">
+						<a href="myoil.html">我的油艙</a>
+						<a href="order.html">立即下單</a>
+						<a href="member.html">個人資料</a>
+						<a href="history,html">歷史訂單</a>
+						<a href="logout.html">登出</a>
+					</div>
+				</div>
+			</ul>
+		</nav>
+	</header>
+    <nav id="blocker"></nav>
+	<main id="order">
+        <script src="js/Multi_LineChart_Price.js"></script>
+        <div id="order_container">
+			<div id="order_img">
+				<i class="far fa-check-circle"></i>
+			</div>
+			<div id="order_text">
+				<p class="blue_small_text">95無鉛汽油</p>
+				<p class="gray_small_text">:</p>
+				<p class="blue_big_text">500</p>
+				<p class="gray_small_text">公升</p>
+				<p class="gray_small_text">(使用期間:</p>
+				<p class="blue_small_text">2021/7&nbsp;-&nbsp;2021/8</p>
+				<p class="gray_small_text">)</p>
+			</div>
+			<div id="order_detail_text">
+				<p>預定完成，欲知油量餘額請前往我的油艙</p>
+			</div>
+			<div id="order_link_button">
+				<a id="linkto_myoil" href="myoil.html">我的油艙</a>
+			</div>
+        </div>
+		<div id="order_progress">
+			<p>如何透過銀行卡購買</p>
+			<div id="progress_container">
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">✓</div>
+						<div class="progress_line"></div>
+					</div>
+					<p>選擇油種、使用期間，</p>
+					<p>並輸入總預定油量。</p>
+				</div>
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">✓</div>
+						<div class="progress_line"></div>
+					</div>
+					<p>輸入銀行卡資訊。</p>
+				</div>
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">✓</div>
+						<div class="progress_line"></div>
+					</div>
+					<p>確認訂單及付款詳情。</p>
+				</div>
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">✓</div>
+					</div>
+					<p>通過3DS安全認證</p>
+					<p>完成付款。</p>
+				</div>
+			</div>
+		</div>
+    </main>
+    <footer>
+		<div id="bottom">
+			<div id="bottom_container">
+				<ul id="bottom_left">
+					<li><a href="disclaimer.html">免責聲明</a></li>
+					<li>|</li>
+					<li><a href="terms.html">服務條款</a></li>
+					<li>|</li>
+					<li><a href="privacy.html">隱私權說明</a></li>
+					<li>|</li>
+					<li><a href="rights.html">法律保護條款</a></li>
+				</ul>
+				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

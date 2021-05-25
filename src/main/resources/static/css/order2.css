@@ -1,0 +1,442 @@
+body{
+    margin: 0;
+    z-index: 0;
+    background-color: white;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/*選單*/
+#top_container{
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    z-index: 100;
+    position: fixed;
+    background-color: white;
+    box-shadow: #666 0 0 5px;
+    box-sizing: border-box;
+}
+#top_left{
+    position: absolute;
+	top: 75%;
+	left: 10%;
+	transform: translate(0, -85%);
+}
+#top_left li{
+    display: inline;
+    position: relative;
+    margin-right: 30px;
+    left: 18px;
+    bottom: 28.5px;
+}
+#top_left li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: gray;
+}
+#top_left li a:hover{
+    color: #212121;
+}
+/*登入前*/
+#top_right{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+}
+#top_right>#login_before>.fa-user-circle{
+    font-size: 30px;
+    color: gray;
+}
+#top_right>#login_before>li{
+    display: inline;
+    position: relative;
+    margin-right: 10px;
+    left: 15px;
+    top: -3.5px;
+    font-size: 18px;
+    color: gray;
+}
+#top_right>#login_before>li>a{
+    text-decoration: none;
+    color: gray;
+}
+#top_right>#login_before>li>a:hover{
+    color: #212121;
+}
+#top_right>#login_after{
+    display: none;
+}
+/*登入後*/
+#top_right_login{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+}
+#top_right_login>#login_after>.fa-user-circle{
+    font-size: 30px;
+    color: gray;
+}
+#top_right_login>#login_after{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+    display: inline-block;
+}
+#top_right_login>#login_after>i{
+    position: relative;
+    color: gray;
+}
+#top_right_login>#login_after>a{
+    position: relative;
+    left: 15px;
+    top: -3.5px;
+    font-size: 18px;
+    color: gray;
+}
+#top_right_login>#login_after:hover>*{
+    color: #212121;
+}
+/* 下拉內容 (預設隱藏) */
+#top_right_login>#login_after>.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* 下拉式選單的連結 */
+#top_right_login>#login_after>.dropdown-content>a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* 滑鼠移上去後修改下拉式選單連結顏色 */
+#top_right_login>#login_after>.dropdown-content>a:hover {background-color: rgb(174, 164, 164);}
+
+/* 在滑鼠移上去後顯示下拉式選單 */
+#top_right_login>#login_after:hover .dropdown-content {
+    display: block;
+}
+#top_right_login>#login_before{
+    display: none;
+}
+#blocker{
+    padding-top: 46px;
+}
+
+/*下單*/
+#order{
+    width: 100%;
+    height: 1000px;
+}
+.est{
+    width: 40%;
+    height: 40%;
+    position: relative;
+    left: 12.5%;
+    top: 50px;
+    margin-bottom: -50px;
+    z-index: 0;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+}
+#order_container{
+    position: relative;
+    float: right;
+    width: 33%;
+    height: 600px;
+    top: 50px;
+    right: 12.5%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+}
+#order_container>form{
+    margin-top: 30px;
+}
+#order_container>form>p{
+    font-size: 20px;
+    margin-left: 55px;
+}
+#hr{
+    width: 83%;
+    margin-top: 20px;
+    margin-left: 55px;
+}
+.input_normal{
+    margin-top: 25px;
+    margin-left: 55px;
+}
+.input_normal>p{
+    font-size: 8px;
+    line-height: 0;
+}
+.creditcard_input_long{
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    height: 35px;
+    margin-top: 5px;
+    border: 1px solid rgb(192, 193, 196);
+    border-radius: 4px;
+    outline: none;
+    font-size: 18px;
+    text-indent: 1.5%;
+}
+.creditcard_input_long:hover{
+    border: 1px solid #3079ED;
+}
+.creditcard_input_long:focus{
+    border: 1px solid #3079ED;
+}
+::-webkit-input-placeholder { /* Chrome, Safari */
+    color: #dadde3;
+}
+#order_container>form>div{
+    position: relative;
+	margin-bottom: 10px;
+}
+.creditcard_input_short{
+    position: relative;
+    z-index: 1;
+    width: 103.5%;
+    height: 35px;
+    margin-top: 5px;
+    border: 1px solid rgb(192, 193, 196);
+    border-radius: 4px;
+    outline: none;
+    font-size: 18px;
+    text-indent: 1.5%;
+}
+.creditcard_input_short:hover{
+    border: 1px solid #3079ED;
+}
+.creditcard_input_short:focus{
+    border: 1px solid #3079ED;
+}
+.input_flex{
+    display: flex;
+    margin-top: 25px;
+    margin-left: 55px;
+}
+.input_flex>div{
+    margin-right: 10%;
+}
+.input_flex>div>p{
+    font-size: 8px;
+    line-height: 0;
+}
+#last_page{
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 37px;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    color: #724DFF;
+    background: white;
+    border: 1.5px #3079ED solid;
+    border-radius: 5px;
+}
+#last_page:hover{
+    background: #bbcff0;
+}
+#last_page:active{
+    box-shadow: inset 0 2px 5px #2370FE; 
+}
+#order2_submit{
+    position: relative;
+    width: 100px;
+    height: 40px;
+    left: 55.5%;
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 38px;
+    text-decoration: none;
+    color: #724DFF;
+    background: white;
+    border: 1.5px #3079ED solid;
+    border-radius: 5px;
+}
+#order2_submit:hover{
+    background: #bbcff0;
+}
+#order2_submit:active{
+    box-shadow: inset 0 2px 5px #2370FE; 
+}
+/*驗證*/
+.valid_input_long>i{
+	display: none;
+}
+.valid_input_short>i{
+	display: none;
+}
+#order_container>form>div>input:required:valid+.valid_input_long>.fa-check-circle{
+	display: inline;
+	position: absolute;
+    left: 85%;
+    bottom: 14%;
+    z-index: 2;
+	font-size: 24px;
+	color: green;
+}
+#order_container>form>div>input:focus:required:invalid+.valid_input_long>.fa-times-circle{
+	display: inline;
+	position: absolute;
+    z-index: 2;
+    left: 85%;
+    bottom: 14%;
+	font-size: 24px;
+	color: red;
+}
+#order_container>form>div>div>input:required:valid+.valid_input_short>.fa-check-circle{
+	display: inline;
+	position: absolute;
+    margin-left: 35.5%;
+    bottom: 12%;
+    z-index: 2;
+	font-size: 24px;
+	color: green;
+}
+#order_container>form>div>div>input:focus:required:invalid+.valid_input_short>.fa-times-circle{
+	display: inline;
+	position: absolute;
+    z-index: 2;
+    margin-left: 35.5%;
+    bottom: 12%;
+	font-size: 24px;
+	color: red;
+}
+/*進度條*/
+#order_progress{
+    position: relative;
+    width: 40%;
+    height: 17.5%;
+    left: 12.5%;
+    top: 100px;
+    background-color: #FCFCFC;
+}
+#order_progress>p{
+    position: relative;
+    left: 40px;
+    top: 30px;
+    font-size: 18px;
+}
+#progress_container{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    left: 40px;
+    top: 35px;
+}
+.progress_shape{
+    display: flex;
+    justify-self: start;
+}
+.progress_circle{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgb(240, 185, 11);
+    color: rgb(30, 35, 41);
+    text-align: center;
+}
+.progress_line{
+    width: 170px;
+    height: 1px;
+    margin-top: 11.5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    background-color: rgb(240, 185, 11);
+    box-sizing: border-box;
+}
+.unprogress_line{
+    width: 170px;
+    height: 1px;
+    margin-top: 11.5px;
+    margin-left: 6px;
+    margin-right: 6px;
+    background-color: rgb(234, 236, 239);
+    box-sizing: border-box;
+}
+.progress>p{
+    font-size: 8px;
+}
+.unprogress_circle{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #EAECEF;
+    color: rgb(132, 142, 156);
+    text-align: center;
+}
+.unprogress>p{
+    font-size: 8px;
+    color: rgb(132, 142, 156);
+}
+/*底部*/
+#bottom{
+    width: 100%;
+	height: 75px;
+    position: relative;
+	box-sizing: border-box;
+    box-shadow: #666 0 0 1px;
+    background-color: #F3F3F3;
+}
+#bottom_container{
+    width: 80%;
+    height: 75px;
+    position: relative;
+    left: 10%;
+}
+#bottom_left{
+    width: 380px;
+    position: relative;
+    top: 10px;
+    float: left;
+}
+#bottom_left li{
+    display: inline;
+    color: gray;
+    margin-right: 2px;
+}
+#bottom_left a{
+    text-decoration: none;
+    color: gray;
+}
+#bottom_left a:hover{
+    color: #212121;
+}
+#bottom_right{
+    width: 550px;
+    position: relative;
+    top: 10px;
+    float: right;
+    color: gray;
+}
+
+@media screen and (max-width: 1350px) {
+    /*選單*/
+    #top_left{
+        left: 0%;
+    }
+    #top_left li{
+        margin-right: 20px;
+        left: 5px;
+    }
+    #top_right{
+        right: 3%;
+    }
+    /*底部*/
+    #bottom_container{
+        width: 99.8%;
+        left: 0.1%;
+    }
+}

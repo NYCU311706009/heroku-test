@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="雲油，屬於您的雲端油艙。" />
+	<meta name="author" content="黃凱立 Kenny Huang" />
+	<meta name="keywords" content="雲油,期貨,避險,油價,石油,汽油 " />
+	<meta http-equiv="Content-Type" content="text/html" charset="uft-8" />
+	<meta http-equiv="Content-Language" content="zh-TW" />
+	<meta http-equiv="Refresh" content="time" />
+	<title>CloudOil</title>
+    <link rel=stylesheet type="text/css" href="css/disclaimer.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e20183103.js" crossorigin="anonymous"></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<!-- d3js用 -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav id="top_container">
+			<ul id="top_left">
+				<a href="index.html"><img src="img/logo_whitepage.png" width="150px" /></a>
+				<li><a href="about.html">關於雲油</a></li>
+				<li><a href="service.html">提供服務</a></li>
+				<li><a href="question.html">常見問題</a></li>
+				<li><a href="index.html#contact">聯絡我們</a></li>
+			</ul>
+			<ul id="top_right">
+                <div id="login_before">
+                    <i class="fas fa-user-circle"></i>
+                    <li><a href="login.html">登入</a></li>
+                    <li>|</li>
+                    <li><a href="register.html">註冊</a></li>
+                </div>
+                <div id="login_after">
+                    <i class="fas fa-user-circle"></i>
+                    <a>嗨！黃凱立</a>
+                    <div class="dropdown-content">
+                        <a href="myoil.html">我的油艙</a>
+                        <a href="order.html">立即下單</a>
+                        <a href="member.html">個人資料</a>
+                        <a href="history,html">歷史訂單</a>
+                        <a href="logout.html">登出</a>
+                    </div>
+                </div>
+            </ul>
+		</nav>
+	</header>
+    <nav id="blocker"></nav>
+    <main>
+        <div id="title_container">
+            <p>免責聲明</p>
+        </div>
+        <div id="text_container">
+            <ul class="list_group">
+                <li>（一）</li>
+                <li>
+                    雲油科技股份有限公司（下稱「本公司」）所有與營運管理之「雲油 Cloud Oil」網站（下稱「本網站」）是為使用者提供期貨避險服務之平台網站。<br>           
+                    本公司已於使用者註冊時要求詳閱使用者平台服務條款、隱私權保護條款、及風險預告書等文件；本聲明則為再次提醒使用者使用本網站前務必詳閱本網站相關使用規定及風險揭露，使用者在瀏覽及使用
+                    本網站前，亦請務必仔細查閱本聲明、使用者平台服務條款、隱私權保護條款、及風險預告書等文件；於瀏覽及使用本網站時，視為使用者已接受本聲明及前述各項文件，若不接受或尚未詳閱本聲明及前
+                    述各項文件，請不要使用本網站。本公司享有對本聲明及前述各項文件進行解釋、修訂及變更的權利，且修訂後之免責聲明及前述各項文件於本網站公告後生效，不另通知使用者。
+                </li>
+            </ul>
+            <ul class="list_group">
+                <li>（二）</li>
+                <li>
+                    本網站訂有隱私權保護政策條款，以保障使用者之個人隱私安全。除按本網站隱私權保護條款規範者外，使用者受有個人資料遭侵害等情事，本網站概不負責。
+                </li>
+            </ul>
+            <ul class="list_group">
+                <li>（三）</li>
+                <li>
+                    維持帳號與密碼之安全是使用者的責任，使用這應妥善保管於本網站設置之密碼，不可將密碼洩露或提供給他人知道或使用。任何依照規定方法輸入使用者帳號及密碼與登入資料一致時，
+                    無論是否由本人親自輸入，利用該帳號及密碼所進行的一切行為，均視為使用者本人所使用，使用者本人應負完全責任，本公司不承擔任何責任。<br>
+                    您的帳號若遭到盜用或有其他任何安全問題發生時，應立即通知本公司，本公司將立即將該組帳號停權，並限制相關使用本網站服務之權利，但就第三人不法使用使用者帳號，
+                    或有使用安全遭異常破壞之情形，仍應由使用者自行負擔全部損失，且仍應負擔經由該帳號所產生的各項費用之支付義務。
+                </li>
+            </ul>
+            <ul class="list_group">
+                <li>（四）</li>
+                <li>
+                    本公司對於任何本網站無法控制的原因（包括但不限於駭客攻擊、電腦病毒攻擊、政府管制、通訊設施故障及其他不可抗力因素）導致的網站暫時關閉、使用者資訊洩露
+                    、被盜用、被篡改等非正常經營行為，因此所造成之任何直接或間接之損害，本平台不負任何賠償責任，即使係本平台曾明白提示注意之建議事項亦同。
+                </li>
+            </ul>
+            <ul class="list_group">
+                <li>（五）</li>
+                <li>
+                    使用者應自行思考並判斷所取得之交易資訊，自行選擇是否進行交易，並自行承擔可能造成的損失。使用者作出交易決策前，應詳閱風險預告書。使用者因使用本網站服務進行交易產生的直接或間接損
+                    失，或透過本網站之贊助者或廣告商所刊登、銷售或交付之任何貨品、禮券或服務，本公司不擔保其有效性、正確性、合適性及完整性均由使用者自行承擔其可能之風險，本公司均不負任何責任。
+                    不論明示或默示，本公司均未保證本服務（包括內容、軟體）不具有事實瑕疵或法律瑕疵（包括安全性、可靠性、正確性、完整性、有效性、特定目的的適用性、安全等相關缺陷、錯誤或程式錯誤、權利
+                    侵害等）。本公司對使用者並無補正該等瑕疵後再提供本服務的義務。
+                </li>
+            </ul>
+            <ul class="list_group">
+                <li>（六）</li>
+                <li>
+                    使用者對於上傳留言之文字、圖片及其它資料，應自行備份，本公司對於任何原因導致其內容全部或一部分之消失、毀損，不負任何責任。<br>
+                    對於使用者在本網站中的所有言論、意見或行為僅代表使用者個人，不代表本公司的立場，本公司不負任何責任，本公司對於使用者所自稱之身分，不擔保其正確性。<br>
+                    本公司無須對發生於本網站或透過本網站所涉及之任何恐嚇、誹謗、淫穢或其他一切不法行為對使用者或任何人負責。
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+		<div id="bottom">
+			<div id="bottom_container">
+				<ul id="bottom_left">
+					<li><a href="disclaimer.html">免責聲明</a></li>
+					<li>|</li>
+					<li><a href="terms.html">服務條款</a></li>
+					<li>|</li>
+					<li><a href="privacy.html">隱私權說明</a></li>
+					<li>|</li>
+					<li><a href="rights.html">法律保護條款</a></li>
+				</ul>
+				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
