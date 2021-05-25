@@ -8,7 +8,4 @@ public interface CustomerRepository extends CrudRepository<Customer,Long> {
 
     Customer findByPassword(String password);
 
-    Customer findByAccount(String account);
-
-
 }

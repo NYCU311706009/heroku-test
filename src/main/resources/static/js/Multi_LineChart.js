@@ -177,6 +177,7 @@ d3.csv("https://raw.githubusercontent.com/k22949706/Project-Oil/master/2018_19_2
         .attr("class", "oil");
     oil.append("path")
         .attr("class", "line")
+        .attr("fill", "none")
         .attr("d", function (d) {
             return line(d.values);
         })

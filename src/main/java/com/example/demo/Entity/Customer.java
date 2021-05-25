@@ -23,9 +23,9 @@ public class Customer implements UserDetails {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    private String account;     //帳號
+    private String username;     //帳號
     private String password;    //密碼
-    private String username;    //姓名
+    private String chineseName;    //姓名
     private String role;        //角色          沒用到
     private String birth;       //出生日期      yyyy/mm/dd
     private String twId;        //身分證字號     pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$
@@ -33,13 +33,17 @@ public class Customer implements UserDetails {
 
     private boolean isLogin;    //登入狀態
     private boolean isValid;    //驗證信
-//    @OneToMany
-//    private List<Product> products;
+    @OneToMany
+    private List<Order> Orders;
+
+    public void addOrders(Order order) {
+        Orders.add(order);
+    }
 
     private Customer(Builder builder){
-        this.account = builder.account;
-        this.password = builder.password;
         this.username = builder.username;
+        this.password = builder.password;
+        this.chineseName = builder.chineseName;
         this.role = builder.role;
         this.birth = builder.birth;
         this.twId = builder.twId;
@@ -54,9 +58,9 @@ public class Customer implements UserDetails {
 
 
     public static class Builder {
-        private String account;     //帳號
+        private String username;     //帳號
         private String password;    //密碼
-        private String username;    //姓名
+        private String chineseName;    //姓名
         private String role;        //角色          沒用到
         private String birth;       //出生日期      yyyy/mm/dd
         private String twId;        //身分證字號     pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$
@@ -64,8 +68,8 @@ public class Customer implements UserDetails {
         private boolean isLogin = true;    //登入狀態
         private boolean isValid = true;    //驗證信
         public Builder(){ }
-        public Builder setAccount(String account) {
-            this.account = account;
+        public Builder setUsername(String username) {
+            this.username = username;
             return this;
         }
 
@@ -74,8 +78,8 @@ public class Customer implements UserDetails {
             return this;
         }
 
-        public Builder setUsername(String username) {
-            this.username = username;
+        public Builder setChineseName(String chineseName) {
+            this.chineseName = chineseName;
             return this;
         }
 

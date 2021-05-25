@@ -43,17 +43,18 @@ body{
 #top_left li a:hover{
     color: whitesmoke;
 }
+/*登入前*/
 #top_right{
     position: relative;
     float: right;
 	top: 13.5%;
     right: 12%;
 }
-.fa-user-circle{
+#top_right>#login_before>.fa-user-circle{
     font-size: 30px;
     color: rgb(174, 164, 164);
 }
-#top_right li{
+#top_right>#login_before>li{
     display: inline;
     position: relative;
     margin-right: 10px;
@@ -62,13 +63,75 @@ body{
     font-size: 18px;
     color: rgb(174, 164, 164);
 }
-#top_right li a{
+#top_right>#login_before>li>a{
     text-decoration: none;
     color: rgb(174, 164, 164);
 }
-#top_right li a:hover{
+#top_right>#login_before>li>a:hover{
     color: whitesmoke;
 }
+#top_right>#login_after{
+    display: none;
+}
+/*登入後*/
+#top_right_login{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+}
+#top_right_login>#login_after>.fa-user-circle{
+    font-size: 30px;
+    color: rgb(174, 164, 164);
+}
+#top_right_login>#login_after{
+    position: relative;
+    float: right;
+	top: 13.5%;
+    right: 12%;
+    display: inline-block;
+}
+#top_right_login>#login_after>i{
+    position: relative;
+    color: rgb(174, 164, 164);
+}
+#top_right_login>#login_after>a{
+    position: relative;
+    left: 15px;
+    top: -3.5px;
+    font-size: 18px;
+    color: rgb(174, 164, 164);
+}
+#top_right_login>#login_after:hover>*{
+    color: whitesmoke;
+}
+/* 下拉內容 (預設隱藏) */
+#top_right_login>#login_after>.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* 下拉式選單的連結 */
+#top_right_login>#login_after>.dropdown-content>a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* 滑鼠移上去後修改下拉式選單連結顏色 */
+#top_right_login>#login_after>.dropdown-content>a:hover {background-color: rgb(174, 164, 164);}
+
+/* 在滑鼠移上去後顯示下拉式選單 */
+#top_right_login>#login_after:hover .dropdown-content {
+    display: block;
+}
+#top_right_login>#login_before{
+    display: none;
+}
+
 /*開頭介紹*/
 #intro{
     width: 100%;    
@@ -150,7 +213,8 @@ body{
     left: 10%;
     top: -100px;
     margin-bottom: -50px;
-    background-color: rgb(237, 236, 236);
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
     z-index: 0;
 }
 .line {
@@ -218,7 +282,7 @@ body{
 }
 #future_container>div{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 #future_container>div>aside>img{
     border-radius: 18px;
@@ -227,6 +291,7 @@ body{
 #future_container>div>article{
     width: 800px;
     position: relative;
+    left: 8%;
     top: 15px;
 }
 #future_container>div>article p{
@@ -236,7 +301,7 @@ body{
 }
 #future_container>a{
     position: relative;
-    right: 3%;
+    right: 1%;
     float: right;
     font-size: 42px;
     color: whitesmoke;
@@ -277,11 +342,12 @@ body{
     position: relative;
     top: 80px;
     font-size: 24px;
+    line-height: 2.5;
     list-style: none;
 }
 #oil_container>div>aside{
     position: relative;
-    left: 5%;
+    left: 7%;
 }
 #oil_container>div>aside>img{
     border-radius: 18px;

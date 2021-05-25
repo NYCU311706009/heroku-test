@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -56,54 +57,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-//                .antMatchers("/friend/**").hasRole("ADMIN")
-//                .antMatchers("/anonymous*").anonymous()
-                .antMatchers("/test","/sign","/register","/resources/**","/js/**","/css/**","/images/*","/img/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
+                .antMatchers("/index","/login","/register","/resources/**","/js/**","/css/**","/images/*","/img/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/sign").permitAll()
-                .loginProcessingUrl("/sign")
-                .defaultSuccessUrl("/test", true)
-                .failureUrl("/sign#err")
+                    .formLogin()
+                    .loginPage("/login").permitAll()
+                    .loginProcessingUrl("/login")
+                    .defaultSuccessUrl("/index", true)
+                    .failureUrl("/login#err")
                 .and()
-                .logout()
-                .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID");
+                    .logout()
+                    .logoutUrl("/logout")
+                    .deleteCookies("JSESSIONID")
+                .and()
+                    .rememberMe()
+                .and()
+                    .sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    .maximumSessions(1)
+                    .maxSessionsPreventsLogin(true);
+
     }
-    /*
-    @Override
-    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        // authentication manager (see below)
-        auth.inMemoryAuthentication()
-                .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
-                .and()
-                .withUser("user2").password(passwordEncoder().encode("user2Pass")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
-    }
-
-
-
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        // http builder configurations for authorize requests and form login (see below)
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/friend/**").hasRole("ADMIN")
-                .antMatchers("/anonymous*").anonymous()
-                .antMatchers("/login*","/register","/resources/**","/css/**","/js/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/index_test.html", true)
-                .failureUrl("/login.html?error=true")
-                .and()
-                .logout()
-                .logoutUrl("/perform_logout")
-                .deleteCookies("JSESSIONID");
-    }*/
 }

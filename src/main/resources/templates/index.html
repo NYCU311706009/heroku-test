@@ -23,17 +23,30 @@
 		<div class="backgrounds">
 			<nav id="top_container">
 				<ul id="top_left">
-					<a href="index.html"><img src="img/logo_homepage.png" width="150px" /></a>
-					<li><a href="#about">關於雲油</a></li>
-					<li><a href="#service">提供服務</a></li>
-					<li><a href="#question">常見問題</a></li>
+					<a href="index.html"><img src="img/logo_darkpage.png" width="150px" /></a>
+					<li><a href="about.html">關於雲油</a></li>
+					<li><a href="service.html">提供服務</a></li>
+					<li><a href="question.html">常見問題</a></li>
 					<li><a href="index.html#contact">聯絡我們</a></li>
 				</ul>
-				<ul id="top_right">
-					<i class="fas fa-user-circle"></i>
-					<li><a href="CloudOil/sign.html">登入</a></li>
-					<li>|</li>
-					<li><a href="CloudOil/register.html">註冊</a></li>
+				<ul th:id="'top_right'+${isLogin}" >
+					<div id="login_before">
+						<i class="fas fa-user-circle"></i>
+						<li><a href="login.html">登入</a></li>
+						<li>|</li>
+						<li><a href="register.html">註冊</a></li>
+					</div>
+					<div id="login_after">
+						<i class="fas fa-user-circle"></i>
+						<a th:text="'嗨！'+${username}">嗨！黃凱立</a>
+						<div class="dropdown-content">
+							<a href="myoil.html">我的油艙</a>
+							<a href="order.html">立即下單</a>
+							<a href="member.html">個人資料</a>
+							<a href="history,html">歷史訂單</a>
+							<a href="logout.html">登出</a>
+						</div>
+					</div>
 				</ul>
 			</nav>
 		</div>
@@ -102,13 +115,13 @@
 						<p>我們與中油Pay合作，可以將油錢存入您的中油Pay中。</p>
 						<li>1. 每個月的5號，我們會結算損益，並加值到您的中油Pay中。</li>
 						<li>2. 當每一筆金額入帳時，我們會用官方Line帳號通知您。</li>
-						<li>3. 結帳時，使用中油Pay掃QRCode即可支付油錢。</li>
+						<li>3. 結帳時，出示我的油艙QRCode，即可連動中油pay支付。</li>
 					</article>
 					<aside>
 						<img src="img/oil.png" />
 					</aside>
 				</div>
-				<a href="#service">立即加入雲油官方Line帳號>></a>
+				<a href="register.html">立即加入雲油>></a>
 			</div>
 		</div>
 		<div id="regression">
@@ -175,13 +188,13 @@
 		<div id="bottom">
 			<div id="bottom_container">
 				<ul id="bottom_left">
-					<li><a href="#disclaimer">免責聲明</a></li>
+					<li><a href="disclaimer.html">免責聲明</a></li>
 					<li>|</li>
-					<li><a href="#terms">服務條款</a></li>
+					<li><a href="terms.html">服務條款</a></li>
 					<li>|</li>
-					<li><a href="#privacy">隱私權說明</a></li>
+					<li><a href="privacy.html">隱私權說明</a></li>
 					<li>|</li>
-					<li><a href="#rights">法律保護條款</a></li>
+					<li><a href="rights.html">法律保護條款</a></li>
 				</ul>
 				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
 			</div>
