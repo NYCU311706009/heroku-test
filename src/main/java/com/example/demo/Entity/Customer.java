@@ -3,8 +3,11 @@ package com.example.demo.Entity;
 
 
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,12 +15,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Customer implements UserDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -26,19 +30,21 @@ public class Customer implements UserDetails {
     private String username;     //帳號
     private String password;    //密碼
     private String chineseName;    //姓名
-    private String role;        //角色          沒用到
+    private UserRole role;        //角色          沒用到
     private String birth;       //出生日期      yyyy/mm/dd
     private String twId;        //身分證字號     pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$
     private String phone;       //電話號碼      pattern="^09[0-9]{8}$
 
     private boolean isLogin;    //登入狀態
     private boolean isValid;    //驗證信
-    @OneToMany
-    private List<Order> Orders;
 
-    public void addOrders(Order order) {
-        Orders.add(order);
-    }
+
+//    @OneToMany
+//    private List<Order> Orders;
+
+//    public void addOrders(Order order) {
+//        Orders.add(order);
+//    }
 
     private Customer(Builder builder){
         this.username = builder.username;
@@ -52,8 +58,25 @@ public class Customer implements UserDetails {
         this.isValid = builder.isValid;
     }
 
-    public Customer() {
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", chineseName='" + chineseName + '\'' +
+                ", role='" + role + '\'' +
+                ", birth='" + birth + '\'' +
+                ", twId='" + twId + '\'' +
+                ", phone='" + phone + '\'' +
+                ", isLogin=" + isLogin +
+                ", isValid=" + isValid +
+                '}';
+    }
 
+    public Customer(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
 
@@ -61,7 +84,7 @@ public class Customer implements UserDetails {
         private String username;     //帳號
         private String password;    //密碼
         private String chineseName;    //姓名
-        private String role;        //角色          沒用到
+        private UserRole role;        //角色          沒用到
         private String birth;       //出生日期      yyyy/mm/dd
         private String twId;        //身分證字號     pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$
         private String phone;       //電話號碼      pattern="^09[0-9]{8}$
@@ -83,7 +106,7 @@ public class Customer implements UserDetails {
             return this;
         }
 
-        public Builder setRole(String role) {
+        public Builder setRole(UserRole role) {
             this.role = role;
             return this;
         }
@@ -121,8 +144,8 @@ public class Customer implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
-        return Arrays.asList(authority);
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(UserRole.USER.name());
+        return Collections.singletonList(authority);
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,9 +13,10 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CreditCard {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
 
 
@@ -25,6 +27,9 @@ public class CreditCard {
     private String cardAddress;//地址
     private String cardCity;//城市
     private String cardZipcode;//郵遞區號
+
+//    @OneToOne
+//    private Order order;
 
     private CreditCard(Builder builder){
         this.cardHolder = builder.cardHolder;

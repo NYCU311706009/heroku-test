@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 
 import com.example.demo.service.CustomerService;
+import com.example.demo.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,19 +12,24 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private CustomerService customerService;
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new CustomerService();
-    }
+    private LoginService loginService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -33,9 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setUserDetailsService(loginService);
         authProvider.setPasswordEncoder(passwordEncoder());
-
         return authProvider;
     }
 
@@ -43,7 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .authenticationProvider(authenticationProvider())
-
                 .inMemoryAuthentication()
                 .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
                 .and()
@@ -63,8 +67,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .formLogin()
                     .loginPage("/login").permitAll()
                     .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("/index", true)
+                    .successHandler(new AuthenticationSuccessHandler() {
+                        @Override
+                        public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+
+                            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                            String username = userDetails.getUsername();
+
+                            System.out.println("The user " + username + " has logged in.");
+
+                            httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
+                        }
+                    })
+                    .failureHandler(new AuthenticationFailureHandler() {
+                        @Override
+                        public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+
+                            String username = httpServletRequest.getParameter("username");
+
+                            System.out.println("The user " + username + " has failed to log in.");
+
+                            httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
+                        }
+                    })
                     .failureUrl("/login#err")
+                    .defaultSuccessUrl("/index",true)
                 .and()
                     .logout()
                     .logoutUrl("/logout")

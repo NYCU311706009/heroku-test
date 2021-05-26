@@ -1,45 +1,37 @@
 package com.example.demo.controller;
 
+import com.example.demo.Entity.RegisterParams;
+import com.example.demo.service.LoginService;
 import com.example.demo.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.persistence.Column;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RegisterController {
 
+
     @Autowired
     RegisterService registerService;
 
+    /*
+    *  Always remember to prevent a single user to login multiple times without logout first.
+    * */
     @GetMapping("/register")
-    public String registerGet(Model model){
-        model.addAttribute("isSuccess",true);
-        //model.addAttribute("errStatus","帳號錯誤");
+    public String registerGet(){
         return "register";
     }
+
+
     @PostMapping("/register")
-    public String registerPost(Model model, @RequestParam("username") String account , @RequestParam("password") String password,
-                               @RequestParam("chineseName") String username, @RequestParam("birth") String birth, @RequestParam("twId") String twId,
-                               @RequestParam("phone") String phone){
-        if(registerService.isExist(username, password)){
-            model.addAttribute("isSuccess",false);
-            model.addAttribute("errStatus","此帳號名稱可能已被使用");
+    public String registerPost(RegisterParams registerParams){
+        System.out.println(registerParams.toString());
+        if(!registerService.isExist(registerParams)){
+            registerService.register(registerParams);
+            return "login";
+        }else{
+            System.out.println("username may be used");
             return "register";
-        }else {
-            registerService.register(account,password,username,birth,twId,phone);
-            model.addAttribute("isLogin", "");
-            return "redirect:/index";
         }
-//        if(customerService.regist(customer)){
-//            return "sign";
-//        }
-//        Customer c = customerService.findByUsername(customer.getUsername());
-//        System.out.println(c.getZid());
-//        return "register";
     }
 }

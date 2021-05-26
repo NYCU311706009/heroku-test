@@ -10,17 +10,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService implements UserDetailsService {
+public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-    @Override
-    public Customer loadUserByUsername(String account) throws UsernameNotFoundException {
-        Customer c = customerRepository.findByUsername(account);
-        return c;
+    public Customer findByUsername(String username){
+        return customerRepository.findByUsername(username);
     }
+
+
 
 }

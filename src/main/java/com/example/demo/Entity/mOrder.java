@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,28 +8,34 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Order {
+@AllArgsConstructor
+public class mOrder {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue
     private Long id;
+
     private String oilType;
     private Date startMonth;
     private Date endMonth;
     private float oilVolume;
     private float handleFee;
     private float oilCost;
-    @OneToOne
-    private CreditCard creditCard;
-    @ManyToOne
-    private Customer customer;
+
+
+//    @OneToOne
+//    private CreditCard creditCard;
+//
+//    @ManyToOne
+//    private Customer customer;
 
 
 
-    private Order(Builder builder){
+    private mOrder(Builder builder){
         this.oilType = builder.oilType;
         this.startMonth = builder.startMonth;
         this.endMonth = builder.endMonth;
@@ -77,8 +84,8 @@ public class Order {
         }
 
         Builder(){}
-        public Order build() {
-            return new Order(this);
+        public mOrder build() {
+            return new mOrder(this);
         }
     }
 

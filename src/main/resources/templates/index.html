@@ -19,186 +19,186 @@
 	<link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
-	<header>
-		<div class="backgrounds">
-			<nav id="top_container">
-				<ul id="top_left">
-					<a href="index.html"><img src="img/logo_darkpage.png" width="150px" /></a>
-					<li><a href="about.html">關於雲油</a></li>
-					<li><a href="service.html">提供服務</a></li>
-					<li><a href="question.html">常見問題</a></li>
-					<li><a href="index.html#contact">聯絡我們</a></li>
-				</ul>
-				<ul th:id="'top_right'+${isLogin}" >
-					<div id="login_before">
-						<i class="fas fa-user-circle"></i>
-						<li><a href="login.html">登入</a></li>
-						<li>|</li>
-						<li><a href="register.html">註冊</a></li>
-					</div>
-					<div id="login_after">
-						<i class="fas fa-user-circle"></i>
-						<a th:text="'嗨！'+${username}">嗨！黃凱立</a>
-						<div class="dropdown-content">
-							<a href="myoil.html">我的油艙</a>
-							<a href="order.html">立即下單</a>
-							<a href="member.html">個人資料</a>
-							<a href="history,html">歷史訂單</a>
-							<a href="logout.html">登出</a>
-						</div>
-					</div>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<main>
-		<div class="backgrounds">
-			<div id="intro">
-				<div id="intro_container">
-					<article>
-						<div id="intro_title">
-							<p id="intro_title_1">提前預訂油</p>
-							<p id="intro_title_2">加油不用求</p>
-						</div>
-						<div id="intro_text">
-							<p>下禮拜油價又要漲價了</p>
-							<p>受夠每周末都在排隊等待加油嗎?</p>
-							<p>現在，您有全新面對油價波動的選擇</p>
-							<a href="#service">了解我們如何幫您避險>></a>
-						</div>
-					</article>
-					<aside>
-						<img src="img/intro_homepage.png" width="500px" />
-					</aside>
+<header>
+	<div class="backgrounds">
+		<nav id="top_container">
+			<ul id="top_left">
+				<a href="index.html"><img src="img/logo_darkpage.png" width="150px" /></a>
+				<li><a href="about.html">關於雲油</a></li>
+				<li><a href="service.html">提供服務</a></li>
+				<li><a href="question.html">常見問題</a></li>
+				<li><a href="index.html#contact">聯絡我們</a></li>
+			</ul>
+			<ul th:id="${islogin} ? 'top_right_login':'top_right'">
+				<div id="login_before">
+					<i class="fas fa-user-circle"></i>
+					<li><a href="login.html">登入</a></li>
+					<li>|</li>
+					<li><a href="register.html">註冊</a></li>
 				</div>
-			</div>
-		</div>
-		<div id="calculate">
-			<div id="calculate_container">
-				<div id="calculate_title">
-					<p>風險試算</p>
-				</div>
-				<div>
-					<script src="js/Multi_LineChart.js"></script>
-				</div>
-				<div id="calculate_button">
-					<button type="button" id="click"> 一鍵風險試算 </button>
-					<i class="fas fa-lightbulb"></i>
-					<p>陰影面積則為透過避險商品，加油時可降低的價格波動</p>
-				</div>
-			</div>
-		</div>
-		<!--<div id="calculate_more"><a id="calculate_more" href="#service">立即使用>></a></div>-->
-		<div id="future">
-			<div id="future_container">
-				<p>期貨操作</p>
-				<div>
-					<aside>
-						<img src="img/future.jpg" />
-					</aside>
-					<article>
-						<p>一旦您鎖定油價，我們便會用相對應的價格買入期貨。</p>
-						<p>當油價漲到越高，期貨的利潤也隨之提升，正好能抵銷上漲的油錢！</p>
-						<p>即使油價下跌，期貨產生虧損，但您也得以用低於鎖定的價格加油。</p>
-						<p>也就是說，無論油價如何變動，你都能以當初鎖定的價格加到油。</p>
-					</article>
-				</div>
-				<a href="#service">了解更多>></a>
-			</div>
-		</div>
-		<div id="oil">
-			<div id="oil_container">
-				<p>兌換油資</p>
-				<div>
-					<article>
-						<p>雲油提供您一個免費的雲端油艙，讓您能將成功避掉的風險兌換成油錢。</p>
-						<p>我們與中油Pay合作，可以將油錢存入您的中油Pay中。</p>
-						<li>1. 每個月的5號，我們會結算損益，並加值到您的中油Pay中。</li>
-						<li>2. 當每一筆金額入帳時，我們會用官方Line帳號通知您。</li>
-						<li>3. 結帳時，出示我的油艙QRCode，即可連動中油pay支付。</li>
-					</article>
-					<aside>
-						<img src="img/oil.png" />
-					</aside>
-				</div>
-				<a href="register.html">立即加入雲油>></a>
-			</div>
-		</div>
-		<div id="regression">
-			<div id="regression_container">
-				<p>量化分析</p>
-				<div>
-					<aside>
-						<img src="img/regression.jpg" width="650px"/>
-					</aside>
-					<article>
-						<p>我們的團隊具有專業統計知識</p>
-						<p>使用迴歸分析、ANOVA檢定等統計方法</p>
-						<p>得出R Square、ANOVA 顯著值等資訊，以正確的估算風險</p>
-					</article>
-				</div>
-				<a href="#service">深入了解我們是如何計算的>></a>
-			</div>
-		</div>
-		<div id="news">
-			<div id="news_container">
-				<p>油價相關新聞</p>
-				<div>
-					<article>
-						<li><a href="https://udn.com/news/story/7266/5408168" >下周油價有機會下跌 估汽油調降0.1元、柴油0.2元</a></li>
-						<li><a href="https://ec.ltn.com.tw/article/breakingnews/3509943" >國際油價上漲 本週週線小幅收低約1％</a></li>
-						<li><a href="https://tw.appledaily.com/life/20210410/6NQLQ4KKGZAHXBV7R36AXTBIE4/" >全球確診人數再增令油價重挫　下周汽油估降3角、近2個月以來首降</a></li>
-						<li><a href="https://ec.ltn.com.tw/article/breakingnews/3495627" >油價已自3月高點跌近10％ 分析師：留意此走勢</a></li>
-					</article>
-					<aside>
-						<img src="img/news.jpg" width="90%"/>
-					</aside>
-				</div>
-				<a href="https://news.google.com/search?q=%E6%B2%B9%E5%83%B9&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant">...閱讀更多</a>
-			</div>
-		</div>
-		<div id="contact">
-			<div id="contact_container">
-				<p>聯絡我們</p>
-				<div>
-					<aside>
-						<img src="img/contact.jpg" width="600px"/>
-					</aside>
-					<article>
-						<p>如果有任何疑問，歡迎跟我們聯絡：</p>
-						<div id="contact_phone">
-							<i class="fas fa-phone"></i><a href="tel:0210733040">02-1073-3033</a>
-						</div>
-						<div id="contact_mail">
-							<i class="fas fa-envelope-open-text"></i><a href="mailto:cloudoil@cloudoil.com.tw">cloudoil@cloudoil.com.tw</a>
-						</div>
-						<div id="contact_address">
-							<i class="fas fa-building"></i><a href="https://goo.gl/maps/DhHqfmG1HQP72nCK9">台北市大安區基隆路四段43號</a>
-						</div>
-					</article>
-					<div id="qrcode">
-						<img src="img/qrcode.jpg" width="200px"/>
-						<p>官方帳號:@cloudoil</p>
+				<div id="login_after">
+					<i class="fas fa-user-circle"></i>
+					<a>嗨！黃凱立</a>
+					<div class="dropdown-content">
+						<a href="myoil.html">我的油艙</a>
+						<a href="order.html">立即下單</a>
+						<a href="member.html">個人資料</a>
+						<a href="history,html">歷史訂單</a>
+						<a href="logout.html">登出</a>
 					</div>
 				</div>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="backgrounds">
+		<div id="intro">
+			<div id="intro_container">
+				<article>
+					<div id="intro_title">
+						<p id="intro_title_1">提前預訂油</p>
+						<p id="intro_title_2">加油不用求</p>
+					</div>
+					<div id="intro_text">
+						<p>下禮拜油價又要漲價了</p>
+						<p>受夠每周末都在排隊等待加油嗎?</p>
+						<p>現在，您有全新面對油價波動的選擇</p>
+						<a href="#service">了解我們如何幫您避險>></a>
+					</div>
+				</article>
+				<aside>
+					<img src="img/intro_homepage.png" width="500px" />
+				</aside>
 			</div>
 		</div>
-	</main>
-	<footer>
-		<div id="bottom">
-			<div id="bottom_container">
-				<ul id="bottom_left">
-					<li><a href="disclaimer.html">免責聲明</a></li>
-					<li>|</li>
-					<li><a href="terms.html">服務條款</a></li>
-					<li>|</li>
-					<li><a href="privacy.html">隱私權說明</a></li>
-					<li>|</li>
-					<li><a href="rights.html">法律保護條款</a></li>
-				</ul>
-				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+	</div>
+	<div id="calculate">
+		<div id="calculate_container">
+			<div id="calculate_title">
+				<p>風險試算</p>
+			</div>
+			<div>
+				<script src="js/Multi_LineChart.js"></script>
+			</div>
+			<div id="calculate_button">
+				<button type="button" id="click"> 一鍵風險試算 </button>
+				<i class="fas fa-lightbulb"></i>
+				<p>陰影面積則為透過避險商品，加油時可降低的價格波動</p>
 			</div>
 		</div>
-	</footer>
+	</div>
+	<!--<div id="calculate_more"><a id="calculate_more" href="#service">立即使用>></a></div>-->
+	<div id="future">
+		<div id="future_container">
+			<p>期貨操作</p>
+			<div>
+				<aside>
+					<img src="img/future.jpg" />
+				</aside>
+				<article>
+					<p>一旦您鎖定油價，我們便會用相對應的價格買入期貨。</p>
+					<p>當油價漲到越高，期貨的利潤也隨之提升，正好能抵銷上漲的油錢！</p>
+					<p>即使油價下跌，期貨產生虧損，但您也得以用低於鎖定的價格加油。</p>
+					<p>也就是說，無論油價如何變動，你都能以當初鎖定的價格加到油。</p>
+				</article>
+			</div>
+			<a href="#service">了解更多>></a>
+		</div>
+	</div>
+	<div id="oil">
+		<div id="oil_container">
+			<p>兌換油資</p>
+			<div>
+				<article>
+					<p>雲油提供您一個免費的雲端油艙，讓您能將成功避掉的風險兌換成油錢。</p>
+					<p>我們與中油Pay合作，可以將油錢存入您的中油Pay中。</p>
+					<li>1. 每個月的5號，我們會結算損益，並加值到您的中油Pay中。</li>
+					<li>2. 當每一筆金額入帳時，我們會用官方Line帳號通知您。</li>
+					<li>3. 結帳時，出示我的油艙QRCode，即可連動中油pay支付。</li>
+				</article>
+				<aside>
+					<img src="img/oil.png" />
+				</aside>
+			</div>
+			<a href="register.html">立即加入雲油>></a>
+		</div>
+	</div>
+	<div id="regression">
+		<div id="regression_container">
+			<p>量化分析</p>
+			<div>
+				<aside>
+					<img src="img/regression.jpg" width="650px"/>
+				</aside>
+				<article>
+					<p>我們的團隊具有專業統計知識</p>
+					<p>使用迴歸分析、ANOVA檢定等統計方法</p>
+					<p>得出R Square、ANOVA 顯著值等資訊，以正確的估算風險</p>
+				</article>
+			</div>
+			<a href="#service">深入了解我們是如何計算的>></a>
+		</div>
+	</div>
+	<div id="news">
+		<div id="news_container">
+			<p>油價相關新聞</p>
+			<div>
+				<article>
+					<li><a href="https://udn.com/news/story/7266/5408168" >下周油價有機會下跌 估汽油調降0.1元、柴油0.2元</a></li>
+					<li><a href="https://ec.ltn.com.tw/article/breakingnews/3509943" >國際油價上漲 本週週線小幅收低約1％</a></li>
+					<li><a href="https://tw.appledaily.com/life/20210410/6NQLQ4KKGZAHXBV7R36AXTBIE4/" >全球確診人數再增令油價重挫　下周汽油估降3角、近2個月以來首降</a></li>
+					<li><a href="https://ec.ltn.com.tw/article/breakingnews/3495627" >油價已自3月高點跌近10％ 分析師：留意此走勢</a></li>
+				</article>
+				<aside>
+					<img src="img/news.jpg" width="90%"/>
+				</aside>
+			</div>
+			<a href="https://news.google.com/search?q=%E6%B2%B9%E5%83%B9&hl=zh-TW&gl=TW&ceid=TW%3Azh-Hant">...閱讀更多</a>
+		</div>
+	</div>
+	<div id="contact">
+		<div id="contact_container">
+			<p>聯絡我們</p>
+			<div>
+				<aside>
+					<img src="img/contact.jpg" width="600px"/>
+				</aside>
+				<article>
+					<p>如果有任何疑問，歡迎跟我們聯絡：</p>
+					<div id="contact_phone">
+						<i class="fas fa-phone"></i><a href="tel:0210733040">02-1073-3033</a>
+					</div>
+					<div id="contact_mail">
+						<i class="fas fa-envelope-open-text"></i><a href="mailto:cloudoil@cloudoil.com.tw">cloudoil@cloudoil.com.tw</a>
+					</div>
+					<div id="contact_address">
+						<i class="fas fa-building"></i><a href="https://goo.gl/maps/DhHqfmG1HQP72nCK9">台北市大安區基隆路四段43號</a>
+					</div>
+				</article>
+				<div id="qrcode">
+					<img src="img/qrcode.jpg" width="200px"/>
+					<p>官方帳號:@cloudoil</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<footer>
+	<div id="bottom">
+		<div id="bottom_container">
+			<ul id="bottom_left">
+				<li><a href="disclaimer.html">免責聲明</a></li>
+				<li>|</li>
+				<li><a href="terms.html">服務條款</a></li>
+				<li>|</li>
+				<li><a href="privacy.html">隱私權說明</a></li>
+				<li>|</li>
+				<li><a href="rights.html">法律保護條款</a></li>
+			</ul>
+			<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+		</div>
+	</div>
+</footer>
 </body>
 </html>
