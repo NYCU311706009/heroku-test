@@ -91,18 +91,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         }
                     })
                     .failureUrl("/login#err")
-                    .defaultSuccessUrl("/index",true)
+                    .defaultSuccessUrl("/index",false)
                 .and()
                     .logout()
                     .logoutUrl("/logout")
                     .deleteCookies("JSESSIONID")
                 .and()
-                    .rememberMe()
-                .and()
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                    .maximumSessions(1)
-                    .maxSessionsPreventsLogin(true);
+                    .rememberMe();
+//                .and()
+//                    .sessionManagement()
+//                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                    .maximumSessions(1)
+//                    .maxSessionsPreventsLogin(true);
 
     }
 }

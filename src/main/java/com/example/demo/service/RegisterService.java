@@ -29,6 +29,7 @@ public class RegisterService {
                 .build();
         customerRepository.save(customer);
         System.out.println("save");
+        System.out.println(customerRepository.findByUsername(registerParams.getUsername()).toString());
     }
 
     /**

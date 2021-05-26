@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.Entity.Customer;
 import com.example.demo.Entity.LoginParams;
 import com.example.demo.Entity.RegisterParams;
+import com.example.demo.Entity.UserRole;
 import com.example.demo.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class LoginService implements UserDetailsService {
