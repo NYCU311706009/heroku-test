@@ -56,13 +56,13 @@
     <nav id="blocker"></nav>
 	<main id="order">
         <div id="order_container">
-			<form action="order3.html" method="POST">
+			<form th:action="@{/order2}" th:object="${creditCardParams}" method="POST">
 				<script src="js/Multi_LineChart_Price.js"></script>
 				<p>輸入卡片資訊</p>
 				<hr id="hr">
 				<div class="input_normal">
 					<p>持卡人姓名</p>
-					<input class="creditcard_input_long" type="text" name="creditcard_name" placeholder="姓名" pattern="^[\u4E00-\u9FA5]{2,50}$" 
+					<input class="creditcard_input_long" type="text" th:name="cardHolder" placeholder="姓名" pattern="^[\u4E00-\u9FA5]{2,50}$"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的姓名' : '');" required />
 					<div class="valid_input_long">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -70,7 +70,7 @@
 				</div>
 				<div class="input_normal">
 					<p>信用卡/金融卡號</p>
-					<input class="creditcard_input_long" type="text" name="creditcard_number" pattern="[0-9]{16}" 
+					<input class="creditcard_input_long" type="text" th:name="cardNumber" pattern="[0-9]{16}"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的信用卡/金融卡號' : '');" required />
 					<div class="valid_input_long">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -79,7 +79,7 @@
 				<div class="input_flex">
 					<div>
 						<p>到期日</p>
-						<input class="creditcard_input_short" type="text" name="creditcard_expirydate" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/?([2-9][0-9])$"
+						<input class="creditcard_input_short" type="text" th:name="cardExpiryDate" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/?([2-9][0-9])$"
 						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的到期日' : '');" required />
 						<div class="valid_input_short">
 							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -87,7 +87,7 @@
 					</div>
 					<div>
 						<p>CVV</p>
-						<input class="creditcard_input_short" type="text" name="creditcard_cvv" placeholder="CVV" pattern="^[0-9]{3,4}$"
+						<input class="creditcard_input_short" type="text" th:name="cardCvv" placeholder="CVV" pattern="^[0-9]{3,4}$"
 						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的CVV' : '');" required />
 						<div class="valid_input_short">
 							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -96,7 +96,7 @@
 				</div>
 				<div class="input_normal">
 					<p>地址</p>
-					<input class="creditcard_input_long" type="text" name="creditcard_address" pattern="^.{9,50}$" 
+					<input class="creditcard_input_long" type="text" th:name="cardAddress" pattern="^.{9,50}$"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的地址' : '');" required />
 					<div class="valid_input_long">
 						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -105,7 +105,7 @@
 				<div class="input_flex">
 					<div>
 						<p>城市</p>
-						<input class="creditcard_input_short" type="text" name="creditcard_city" pattern="^[\u4E00-\u9FA5]{3}$"
+						<input class="creditcard_input_short" type="text" th:name="cardCity" pattern="^[\u4E00-\u9FA5]{3}$"
 						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的城市' : '');" required />
 						<div class="valid_input_short">
 							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
@@ -113,7 +113,7 @@
 					</div>
 					<div>
 						<p>郵遞區號</p>
-						<input class="creditcard_input_short" type="text" name="creditcard_zipcode" pattern="^[0-9]{3}$"
+						<input class="creditcard_input_short" type="text" th:name="cardZipcode" pattern="^[0-9]{3}$"
 						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的郵遞區號' : '');" required />
 						<div class="valid_input_short">
 							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>

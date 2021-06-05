@@ -61,19 +61,19 @@
 				<i class="far fa-check-circle"></i>
 			</div>
 			<div id="order_text">
-				<p class="blue_small_text">95無鉛汽油</p>
+				<p th:text="*{oilType}" class="blue_small_text">95無鉛汽油</p>
 				<p class="gray_small_text">:</p>
-				<p class="blue_big_text">500</p>
+				<p th:text="*{oilVolume}" class="blue_big_text">500</p>
 				<p class="gray_small_text">公升</p>
 				<p class="gray_small_text">(使用期間:</p>
-				<p class="blue_small_text">2021/7&nbsp;-&nbsp;2021/8</p>
+				<p th:text="*{startMonth}+'-'+*{endMonth}" class="blue_small_text">2021/7&nbsp;-&nbsp;2021/8</p>
 				<p class="gray_small_text">)</p>
 			</div>
 			<div id="order_detail_text">
 				<p>預定完成，欲知油量餘額請前往我的油艙</p>
 			</div>
 			<div id="order_link_button">
-				<a id="linkto_myoil" href="myoil.html">我的油艙</a>
+				<a id="linkto_myoil" href="myoil">我的油艙</a>
 			</div>
         </div>
 		<div id="order_progress">

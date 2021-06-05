@@ -14,18 +14,18 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class mOrder {
+public class NewOrder {
     @Id
     @GeneratedValue
     private Long id;
 
     private String oilType;
-    private Date startMonth;
-    private Date endMonth;
+    private String startMonth;
+    private String endMonth;
     private float oilVolume;
     private float handleFee;
     private float oilCost;
-
+    private String owner; //Customer.Username
 
 //    @OneToOne
 //    private CreditCard creditCard;
@@ -35,35 +35,39 @@ public class mOrder {
 
 
 
-    private mOrder(Builder builder){
+    private NewOrder(Builder builder){
         this.oilType = builder.oilType;
         this.startMonth = builder.startMonth;
         this.endMonth = builder.endMonth;
         this.oilVolume = builder.oilVolume;
         this.handleFee = builder.handleFee;
         this.oilCost = builder.oilCost;
-
+        this.owner = builder.owner;
     }
     private static class Builder{
-
         private String oilType;
-        private Date startMonth;
-        private Date endMonth;
+        private String startMonth;
+        private String endMonth;
         private float oilVolume;
         private float handleFee;
         private float oilCost;
+        private String owner;
+        public Builder setOwner(String owner){
+            this.owner = owner;
+            return this;
+        }
 
         public Builder setOilType(String oilType) {
             this.oilType = oilType;
             return this;
         }
 
-        public Builder setStartMonth(Date startMonth) {
+        public Builder setStartMonth(String startMonth) {
             this.startMonth = startMonth;
             return this;
         }
 
-        public Builder setEndMonth(Date endMonth) {
+        public Builder setEndMonth(String endMonth) {
             this.endMonth = endMonth;
             return this;
         }
@@ -84,8 +88,8 @@ public class mOrder {
         }
 
         Builder(){}
-        public mOrder build() {
-            return new mOrder(this);
+        public NewOrder build() {
+            return new NewOrder(this);
         }
     }
 

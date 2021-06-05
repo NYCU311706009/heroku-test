@@ -65,10 +65,10 @@
 				</div>
 			</div>
 			<div>
-				<form action="order5.html" method="POST">
+				<form th:action="@{/order4}" method="POST">
 					<div class="cvv_input_container">
 						<p>驗證安全碼為</p>
-						<input class="cvv_input" type="text" name="3DS" pattern="^[0-9]{3,4}$"
+						<input class="cvv_input" type="text" th:name="cardCvv" pattern="^[0-9]{3,4}$"
 						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的CVV' : '');" required />
 						<div class="valid_input">
 							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>

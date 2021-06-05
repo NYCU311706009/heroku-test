@@ -22,7 +22,7 @@ public class CreditCard {
 
     private String cardHolder;//持卡人姓名
     private String cardNumber;//銀行卡號
-    private Date cardExpiryDate;//到期日
+    private String cardExpiryDate;//到期日
     private String cardCvv;//CVV安全碼
     private String cardAddress;//地址
     private String cardCity;//城市
@@ -43,7 +43,7 @@ public class CreditCard {
 
         private String cardHolder;//持卡人姓名
         private String cardNumber;//銀行卡號
-        private Date cardExpiryDate;//到期日
+        private String cardExpiryDate;//到期日
         private String cardCvv;//CVV安全碼
         private String cardAddress;//地址
         private String cardCity;//城市
@@ -59,7 +59,7 @@ public class CreditCard {
             return this;
         }
 
-        public Builder setCardExpiryDate(Date cardExpiryDate) {
+        public Builder setCardExpiryDate(String cardExpiryDate) {
             this.cardExpiryDate = cardExpiryDate;
             return this;
         }

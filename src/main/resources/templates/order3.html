@@ -61,12 +61,12 @@
 			<div id="what_order_get">
 				<div><p class="gray_small_text">您將獲得</p></div>
 				<div>
-					<p class="blue_small_text">95無鉛汽油</p>
+					<p th:text="*{oilType}" class="blue_small_text">95無鉛汽油</p>
 					<p class="gray_small_text">:</p>
-					<p class="blue_big_text">500</p>
+					<p th:text="*{oilVolume}" class="blue_big_text">500</p>
 					<p class="gray_small_text">公升</p>
 					<p class="gray_small_text">(使用期間:</p>
-					<p class="blue_small_text">2021/7&nbsp;-&nbsp;2021/8</p>
+					<p th:text="*{startMonth}+'-'+*{endMonth}" class="blue_small_text">2021/7&nbsp;-&nbsp;2021/8</p>
 					<p class="gray_small_text">)</p>
 				</div>
 			</div>
@@ -74,24 +74,24 @@
 				<div>
 					<div>
 						<p class="gray_detail_text">支付方式</p>
-						<p class="black_detail_text">428368******2170</p>
+						<p th:text="*{cardNumber}" class="black_detail_text">428368******2170</p>
 					</div>
 					<div>
 						<p class="gray_detail_text">油價</p>
-						<p class="black_detail_text">每公升28.1元</p>
+						<p th:text="每公升+*{cpcPrice}+元" class="black_detail_text">每公升28.1元</p>
 					</div>
 					<div>
 						<p class="gray_detail_text">手續費</p>
-						<p class="black_detail_text">50元</p>
+						<p th:text="*{handleFee}" class="black_detail_text">50元</p>
 					</div>
 					<div>
 						<p class="gray_detail_text">總花費</p>
-						<p class="black_detail_text">14100元</p>
+						<p th:text="*{oilCost}"class="black_detail_text">14100元</p>
 					</div>
 				</div>
 			</div>
 			<div id="order_confirm">
-				<form action="order4.html" method="POST">
+				<form th:action="@{/order3}" method="POST">
 					<div id="order_agree">
 						<input type="checkbox" required/>
 						<p>我已詳閱並同意雲油的</p>
