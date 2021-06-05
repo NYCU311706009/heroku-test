@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="雲油，屬於您的雲端油艙。" />
+	<meta name="author" content="黃凱立 Kenny Huang" />
+	<meta name="keywords" content="雲油,期貨,避險,油價,石油,汽油 " />
+	<meta http-equiv="Content-Type" content="text/html" charset="uft-8" />
+	<meta http-equiv="Content-Language" content="zh-TW" />
+	<meta http-equiv="Refresh" content="time" />
+	<title>CloudOil</title>
+    <link rel=stylesheet type="text/css" href="css/order2.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google字型-->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+    <!-- fontawesome圖示 -->
+    <script src="https://kit.fontawesome.com/2e20183103.js" crossorigin="anonymous"></script>
+    <!-- Google recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<!-- d3js用 -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Saira:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav id="top_container">
+			<ul id="top_left">
+				<a href="index.html"><img src="img/logo_whitepage.png" width="150px" /></a>
+				<li><a href="about.html">關於雲油</a></li>
+				<li><a href="service.html">提供服務</a></li>
+				<li><a href="question.html">常見問題</a></li>
+				<li><a href="index.html#contact">聯絡我們</a></li>
+			</ul>
+			<ul id="top_right">
+				<div id="login_before">
+					<i class="fas fa-user-circle"></i>
+					<li><a href="login.html">登入</a></li>
+					<li>|</li>
+					<li><a href="register.html">註冊</a></li>
+				</div>
+				<div id="login_after">
+					<i class="fas fa-user-circle"></i>
+					<a>嗨！黃凱立</a>
+					<div class="dropdown-content">
+						<a href="myoil.html">我的油艙</a>
+						<a href="order.html">立即下單</a>
+						<a href="member.html">個人資料</a>
+						<a href="history.html">歷史訂單</a>
+						<a href="logout.html">登出</a>
+					</div>
+				</div>
+			</ul>
+		</nav>
+	</header>
+    <nav id="blocker"></nav>
+	<main id="order">
+        <div id="order_container">
+			<form action="order3.html" method="POST">
+				<script src="js/Multi_LineChart_Price.js"></script>
+				<p>輸入卡片資訊</p>
+				<hr id="hr">
+				<div class="input_normal">
+					<p>持卡人姓名</p>
+					<input class="creditcard_input_long" type="text" name="creditcard_name" placeholder="姓名" pattern="^[\u4E00-\u9FA5]{2,50}$" 
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的姓名' : '');" required />
+					<div class="valid_input_long">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+					</div>	
+				</div>
+				<div class="input_normal">
+					<p>信用卡/金融卡號</p>
+					<input class="creditcard_input_long" type="text" name="creditcard_number" pattern="[0-9]{16}" 
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的信用卡/金融卡號' : '');" required />
+					<div class="valid_input_long">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+					</div>
+				</div>
+				<div class="input_flex">
+					<div>
+						<p>到期日</p>
+						<input class="creditcard_input_short" type="text" name="creditcard_expirydate" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/?([2-9][0-9])$"
+						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的到期日' : '');" required />
+						<div class="valid_input_short">
+							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						</div>
+					</div>
+					<div>
+						<p>CVV</p>
+						<input class="creditcard_input_short" type="text" name="creditcard_cvv" placeholder="CVV" pattern="^[0-9]{3,4}$"
+						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的CVV' : '');" required />
+						<div class="valid_input_short">
+							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						</div>
+					</div>
+				</div>
+				<div class="input_normal">
+					<p>地址</p>
+					<input class="creditcard_input_long" type="text" name="creditcard_address" pattern="^.{9,50}$" 
+					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的地址' : '');" required />
+					<div class="valid_input_long">
+						<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+					</div>
+				</div>
+				<div class="input_flex">
+					<div>
+						<p>城市</p>
+						<input class="creditcard_input_short" type="text" name="creditcard_city" pattern="^[\u4E00-\u9FA5]{3}$"
+						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的城市' : '');" required />
+						<div class="valid_input_short">
+							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						</div>
+					</div>
+					<div>
+						<p>郵遞區號</p>
+						<input class="creditcard_input_short" type="text" name="creditcard_zipcode" pattern="^[0-9]{3}$"
+						onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的郵遞區號' : '');" required />
+						<div class="valid_input_short">
+							<i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i>
+						</div>
+					</div>
+				</div>
+				<div class="input_flex">
+					<a id="last_page" href="order.html">上一步</a>
+					<input id="order2_submit" type="submit" name="order2" value="下一步"></input>
+				</div>
+			</form>
+        </div>
+		<div id="order_progress">
+			<p>如何透過信用卡/金融卡購買</p>
+			<div id="progress_container">
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">✓</div>
+						<div class="progress_line"></div>
+					</div>
+					<p>選擇油種、使用期間</p>
+					<p>、每月預定油量</p>
+				</div>
+				<div class="progress">
+					<div class="progress_shape">
+						<div class="progress_circle">2</div>
+						<div class="unprogress_line"></div>
+					</div>
+					<p>輸入信用卡或</p>
+					<p>金融卡資訊</p>
+				</div>
+				<div class="unprogress">
+					<div class="progress_shape">
+						<div class="unprogress_circle">3</div>
+						<div class="unprogress_line"></div>
+					</div>
+					<p>確認訂單及</p>
+					<p>付款詳情</p>
+				</div>
+				<div class="unprogress">
+					<div class="progress_shape">
+						<div class="unprogress_circle">4</div>
+					</div>
+					<p>通過3DS安全</p>
+					<p>認證完成付款</p>
+				</div>
+			</div>
+		</div>
+    </main>
+    <footer>
+		<div id="bottom">
+			<div id="bottom_container">
+				<ul id="bottom_left">
+					<li><a href="disclaimer.html">免責聲明</a></li>
+					<li>|</li>
+					<li><a href="terms.html">服務條款</a></li>
+					<li>|</li>
+					<li><a href="privacy.html">隱私權說明</a></li>
+					<li>|</li>
+					<li><a href="rights.html">法律保護條款</a></li>
+				</ul>
+				<p id="bottom_right">雲油科技股份有限公司 Copyright © 2021, Cloud Oil, All Rights Reserved</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
