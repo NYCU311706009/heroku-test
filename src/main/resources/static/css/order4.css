@@ -372,6 +372,37 @@ body{
     #top_right{
         right: 3%;
     }
+    /*下單*/
+    .est{
+        height: 30%;
+    }
+    /*下單-填資料*/
+    #order_container>p{
+        margin-left: 35px;
+    }
+    #cvv_prompt>div{
+        top: 15px;
+    }
+    #cvv_prompt>div>p{
+        font-size: 14px;
+    }
+    .cvv_input_container{
+        margin-left: 35px;
+    }
+    /*下單-進度條*/
+    #order_progress{
+        height: 27.5%;
+        background-color: #FCFCFC;
+    }
+    #order_progress>p{
+        top: 65px;
+    }
+    #progress_container{
+        top: 70px;
+    }
+    .progress_line{
+        width: 90px;
+    }
     /*底部*/
     #bottom_container{
         width: 99.8%;

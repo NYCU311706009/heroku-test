@@ -347,23 +347,14 @@ body{
 }
 #oil_container>div>aside{
     position: relative;
-    left: 7%;
+    left: 15%;
+    bottom: 100px;
 }
 #oil_container>div>aside>img{
     border-radius: 18px;
     border-style: none;
 }
-#oil_container>a{
-    position: relative;
-    top: 40px;
-    right: 3%;
-    float: right;
-    font-size: 42px;
-    color: black;
-}
-#oil_container>a:hover{
-    color: red;
-}
+
 /*量化分析*/
 #regression{
     width: 100%;
@@ -590,7 +581,7 @@ body{
         height: 550px;
     }
     #oil_container>div>article{
-        width: 750px;
+        width: 650px;
         margin-right: 5%;
     }
     #oil_container>div>article p{
@@ -600,7 +591,10 @@ body{
         font-size: 18px;
     }
     #oil_container>div>aside>img{
-        width: 95%;
+        position: relative;
+        right: 30%;
+        width: 350px;
+
     }
     #oil_container>a{
         top: 20px;

@@ -16,6 +16,8 @@ function onClick92() {
     d3.csv(csvData, function (data) {
         update(data, oiltype, oilrect);
     });
+
+    document.getElementById('oiltype_submit').value = "92無鉛";
 }
 function onClick95() {
     let btn95 = document.getElementById("oil95");
@@ -33,6 +35,8 @@ function onClick95() {
     d3.csv(csvData, function (data) {
         update(data, oiltype, oilrect);
     });
+
+    document.getElementById('oiltype_submit').value = "95無鉛";
 }
 function onClick98() {
     let btn98 = document.getElementById("oil98");
@@ -50,6 +54,8 @@ function onClick98() {
     d3.csv(csvData, function (data) {
         update(data, oiltype, oilrect);
     });
+
+    document.getElementById('oiltype_submit').value = "98無鉛";
 }
 function onClickDiesel() {
     let btnDiesel = document.getElementById("oilDiesel");
@@ -67,6 +73,8 @@ function onClickDiesel() {
     d3.csv(csvData, function (data) {
         update(data, oiltype, oilrect);
     });
+
+    document.getElementById('oiltype_submit').value = "超級柴油";
 }
 
 // set the dimensions and margins of the graph

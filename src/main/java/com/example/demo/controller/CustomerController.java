@@ -22,11 +22,13 @@ public class CustomerController {
 
     @GetMapping("/index")
     public String indexGet(Model model) {
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println("It's"+auth.getName());
-//        model.addAttribute("username", auth.getName())
-//                .addAttribute("roles", auth.getAuthorities());
+        if (auth.getName().equals("anonymousUser")){
+            return "index";
+        }
+        model.addAttribute("isLogin",true)
+             .addAttribute("username", auth.getName());
         return "index";
     }
 }

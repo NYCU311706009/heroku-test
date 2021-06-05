@@ -165,28 +165,6 @@ body{
     text-align: center;
     bottom: 50px;
 }
-#mission_container>a{
-    display: block;
-    margin: auto;
-    position: relative;
-    width: 200px;
-    height: 74px;
-    top: 20px;
-    font-size: 36px;
-    line-height: 68px;
-    text-align: center;
-    text-decoration: none;
-    color: #724DFF;
-    background: white;
-    border: 1.5px #3079ED solid;
-    border-radius: 20px;
-}
-#mission_container>a:hover{
-    background: #bbcff0;
-}
-#mission_container>a:active{
-    box-shadow: inset 0 2px 5px #2370FE; 
-}
 #group_container{
     width: 80%;
     position: relative;

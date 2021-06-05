@@ -434,6 +434,100 @@ body{
     #top_right{
         right: 3%;
     }
+    /*下單*/
+    .est{
+        height: 30%;
+    }
+    /*下單-填資料*/
+    #order_container>form>p{
+        margin-left: 35px;
+    }
+    #oiltype_container{
+        display: flex;
+        justify-content: space-around;
+        margin-left: 35px;
+    }
+    .oiltype{
+        width: 60px;
+        height: 60px;
+    }
+    #oildate_container{
+        margin-left: 40px;
+    }
+    #oildate_container>input{
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    #oildate_container>p{
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    #oilvolume_container{
+        margin-left: 35px;
+    }
+    #oilvolume_container>input{
+        width: 37%;
+        font-size: 14px;
+    }
+    #oilfee_container{
+        margin-left: 35px;
+    }
+    .oilfee_text{
+        margin-right: 35px;
+    }
+    #hr{
+        margin-left: 35px;
+    }
+    .input_normal{
+        margin-left: 35px;
+    }
+    .input_flex{
+        display: flex;
+        margin-top: 25px;
+        margin-left: 35px;
+    }
+    .input_flex>div{
+        margin-right: 11.5%;
+    }
+    #order2_submit{
+        left: 38%;
+    }
+    /*驗證*/
+    .valid_input_long>i{
+        display: none;
+    }
+    .valid_input_short>i{
+        display: none;
+    }
+    #order_container>form>div>input:required:valid+.valid_input_long>.fa-check-circle{
+        left: 82%;
+    }
+    #order_container>form>div>input:focus:required:invalid+.valid_input_long>.fa-times-circle{
+        left: 82%;
+    }
+    #order_container>form>div>div>input:required:valid+.valid_input_short>.fa-check-circle{
+        margin-left: 32.5%;
+    }
+    #order_container>form>div>div>input:focus:required:invalid+.valid_input_short>.fa-times-circle{
+        margin-left: 32.5%;
+    }
+    /*下單-進度條*/
+    #order_progress{
+        height: 27.5%;
+        background-color: #FCFCFC;
+    }
+    #order_progress>p{
+        top: 65px;
+    }
+    #progress_container{
+        top: 70px;
+    }
+    .progress_line{
+        width: 90px;
+    }
+    .unprogress_line{
+        width: 90px;
+    }
     /*底部*/
     #bottom_container{
         width: 99.8%;

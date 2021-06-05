@@ -22,6 +22,9 @@ function calc() {
     } else {
         oilCost.textContent = "";
     }
+
+    document.getElementById('oilfee_submit').value = getOilVolume;
+    document.getElementById('oilcost_submit').value = getOilVolume2;
 }
 
 

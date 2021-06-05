@@ -344,6 +344,34 @@ body{
     #top_right{
         right: 3%;
     }
+    /*下單*/
+    .est{
+        height: 30%;
+    }
+    /*下單-填資料*/
+    #order_container>p{
+        margin-left: 35px;
+    }
+    #order_link_button{
+        width: 300px;
+    }
+    #linkto_myoil{
+        width: 300px;
+    }
+    /*下單-進度條*/
+    #order_progress{
+        height: 27.5%;
+        background-color: #FCFCFC;
+    }
+    #order_progress>p{
+        top: 65px;
+    }
+    #progress_container{
+        top: 70px;
+    }
+    .progress_line{
+        width: 90px;
+    }
     /*底部*/
     #bottom_container{
         width: 99.8%;
