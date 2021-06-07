@@ -44,7 +44,7 @@ public class NewOrder {
         this.oilCost = builder.oilCost;
         this.owner = builder.owner;
     }
-    private static class Builder{
+    public static class Builder{
         private String oilType;
         private String startMonth;
         private String endMonth;
@@ -87,7 +87,7 @@ public class NewOrder {
             return this;
         }
 
-        Builder(){}
+        public Builder(){}
         public NewOrder build() {
             return new NewOrder(this);
         }

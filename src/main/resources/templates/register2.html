@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant-TW" xmlns:th="https://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,10 +54,10 @@
     <main id="register">
         <div id="register_container">
             <p>信箱驗證</p>
-            <form>
+            <form method="post">
                 <div class="register_containers">
                     <i class="fas fa-envelope"></i>
-                    <input class="register_input" type="email" name="email" placeholder="電子郵件" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                    <input class="register_input" type="email" name="email" placeholder="電子郵件" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					onchange="this.setCustomValidity(this.validity.patternMismatch ? '請輸入正確的信箱' : '');" required />
 					<div class="register_icon_valid"><i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i></div>
                 </div>

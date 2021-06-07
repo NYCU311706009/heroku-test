@@ -41,7 +41,7 @@
                 </div>
                 <div id="login_after">
                     <i class="fas fa-user-circle"></i>
-                    <a>嗨！黃凱立</a>
+                    <a th:text="'嗨!'+*{chineseName}">嗨！黃凱立</a>
                     <div class="dropdown-content">
                         <a href="myoil.html">我的油艙</a>
                         <a href="order/order.html">立即下單</a>
@@ -60,27 +60,27 @@
                 <p id="member_title">個人資料</p><br>
                 <div class="member_file">
                     <p class="file_name">帳號</p>
-                    <p class="file_text">a12345678</p>
+                    <p th:text="*{username}" class="file_text">a12345678</p>
                 </div>
                 <div class="member_file">
                     <p class="file_name">信箱</p>
-                    <p class="file_text">a12345678@gmail.com</p>
+                    <p th:text="*{email}"class="file_text">a12345678@gmail.com</p>
                 </div>
                 <div class="member_file">
                     <p class="file_name">姓名</p>
-                    <p class="file_text">王廣和</p>
+                    <p th:text="*{chineseName}" class="file_text">王廣和</p>
                 </div>
                 <div class="member_file">
                     <p class="file_name">生日</p>
-                    <p class="file_text">2000-01-01</p>
+                    <p th:text="*{birth}"class="file_text">2000-01-01</p>
                 </div>
                 <div class="member_file">
                     <p class="file_name">手機</p>
-                    <p class="file_text">0912345678</p>
+                    <p th:text="*{phone}"class="file_text">0912345678</p>
                 </div>
                 <div class="member_file">
                     <p class="file_name">身分證字號</p>
-                    <p class="file_text">******1234</p>
+                    <p th:text="*{twId}"class="file_text">******1234</p>
                 </div>
                 <a href="forgetPassword.html" class="edit_password_btn">
                     <i class="fas fa-wrench"></i>

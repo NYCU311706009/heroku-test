@@ -28,7 +28,7 @@ public class CustomerController {
             return "index";
         }
         model.addAttribute("isLogin",true)
-             .addAttribute("username", auth.getName());
+             .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName());
         return "index";
     }
 }

@@ -34,7 +34,7 @@ public class Customer implements UserDetails {
     private String birth;       //出生日期      yyyy/mm/dd
     private String twId;        //身分證字號     pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$
     private String phone;       //電話號碼      pattern="^09[0-9]{8}$
-
+    private String email;       //信箱
     private boolean isLogin;    //登入狀態
     private boolean isValid;    //驗證信
 
@@ -56,6 +56,7 @@ public class Customer implements UserDetails {
         this.phone = builder.phone;
         this.isLogin = builder.isLogin;
         this.isValid = builder.isValid;
+        this.email = builder.email;
     }
 
     @Override
@@ -65,10 +66,11 @@ public class Customer implements UserDetails {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", chineseName='" + chineseName + '\'' +
-                ", role='" + role + '\'' +
+                ", role=" + role +
                 ", birth='" + birth + '\'' +
                 ", twId='" + twId + '\'' +
                 ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 ", isLogin=" + isLogin +
                 ", isValid=" + isValid +
                 '}';
@@ -83,6 +85,7 @@ public class Customer implements UserDetails {
     public static class Builder {
         private String username;     //帳號
         private String password;    //密碼
+        private String email;       //信箱
         private String chineseName;    //姓名
         private UserRole role;        //角色          沒用到
         private String birth;       //出生日期      yyyy/mm/dd
@@ -95,7 +98,10 @@ public class Customer implements UserDetails {
             this.username = username;
             return this;
         }
-
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
         public Builder setPassword(String password) {
             this.password = password;
             return this;

@@ -68,6 +68,8 @@ public class OrderController {
     public String order3Get(Model model){
         try{
             stayLogin(model,auth);
+            mOrderParams.getOilType();
+
             System.out.println("order3:"+mOrderParams.getOwner());
             model
                     .addAttribute("oilType",mOrderParams.getOilType())
@@ -120,6 +122,7 @@ public class OrderController {
     @PostMapping("/order4")
     public String order4Post(Model model ,String cardCvv){
         if (cardCvv.equals(mOrderParams.getCreditCardParams().getCardCvv())){
+            orderService.saveOrder(mOrderParams);
             return "redirect:/order5";
         }
         return "order4";

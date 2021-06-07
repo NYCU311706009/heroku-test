@@ -14,6 +14,7 @@ public class RegisterController {
     @Autowired
     RegisterService registerService;
 
+    RegisterParams registerParams;
     /*
     *  Always remember to prevent a single user to login multiple times without logout first.
     * */
@@ -27,11 +28,20 @@ public class RegisterController {
     public String registerPost(RegisterParams registerParams){
         System.out.println(registerParams.toString());
         if(!registerService.isExist(registerParams)){
-            registerService.register(registerParams);
-            return "login";
+            this.registerParams = registerParams;
+            //registerService.register(registerParams);
+            return "redirect:/register2";
         }else{
             System.out.println("username may be used");
             return "register";
         }
+    }
+    @GetMapping("/register2")
+    public String register2Get(){return "register2";}
+    @PostMapping("/register2")
+    public String register2Post(String email){
+        registerParams.setEmail(email);
+        registerService.register(registerParams);
+        return "redirect:/index";
     }
 }

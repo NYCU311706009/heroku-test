@@ -1,7 +1,7 @@
 package com.example.demo.Entity;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.RequestParam;
+
 @Data
 @Getter
 @Setter
@@ -14,8 +14,7 @@ public class RegisterParams {
     private String birth;
     private String twId;
     private String phone;
-
-
+    private String email;
 
     @Override
     public String toString() {
@@ -26,6 +25,7 @@ public class RegisterParams {
                 ", birth='" + birth + '\'' +
                 ", twId='" + twId + '\'' +
                 ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
