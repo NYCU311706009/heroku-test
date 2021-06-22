@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Calendar;
+
 @SpringBootTest
 class DemoApplicationTests {
     @Autowired
@@ -42,5 +44,22 @@ class DemoApplicationTests {
         LoginParams loginParams = new LoginParams("b10733033","b10733033");
         String result = loginController.loginPost(loginParams);
         System.out.println(result);
+    }
+
+    @Test
+    void lom(){
+        Calendar now = Calendar.getInstance();
+        String s = now.get(Calendar.YEAR)+"-"
+                +((int) now.get((Calendar.MONTH))+1)+"-"
+                +now.get(Calendar.DAY_OF_MONTH)+" "
+                +now.get(Calendar.HOUR_OF_DAY)+":"
+                +now.get(Calendar.MINUTE)+":"
+                +now.get(Calendar.SECOND);
+        System.out.println(s);
+    }
+    @Test
+    void check(){
+        Customer c = customerRepository.findByUsername("b10733033");
+        System.out.println(c.toString());
     }
 }

@@ -125,6 +125,10 @@ body{
 #top_right_login>#login_before{
     display: none;
 }
+/*手機選單*/
+#top_container_mobile{
+    display: none;
+}
 #blocker{
     padding-top: 73px;
 }
@@ -220,10 +224,13 @@ body{
     position: relative;
     top: 10px;
     float: right;
-    color: gray;
+    color: rgb(174, 164, 164);
+}
+#bottom_mobile{
+    display: none;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1800px) {
     /*選單*/
     #top_left{
         left: 0%;
@@ -235,9 +242,205 @@ body{
     #top_right{
         right: 3%;
     }
-    /*底部*/
+
+    /*會員*/
+    #member_container{
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 50%;
+        height: 600px;
+        top: 70px;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+    }
+    
     #bottom_container{
         width: 99.8%;
         left: 0.1%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /*選單*/
+    #top_container{
+        display: none;
+    }
+    #top_container_mobile{
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        height: 75px;
+        margin: 0;
+        z-index: 2;
+        background-color: #212121;
+        opacity: 0.8;
+        box-shadow: #F7BC00 0 0 1px;
+        box-sizing: border-box;
+    }
+    #leftbtn{
+        position: relative;
+        top: 7.5px;
+        left: 30px;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 36px;
+    }
+    #leftmenu{
+        display: none;
+        position: absolute;
+        top: 75px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #leftmenu>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #top_logo_mobile{
+        position: relative;
+        top: 7.5px;
+        left: 10px;
+    }
+    #rightbtn{
+        position: relative;
+        top: 7.5px;
+        right: 30px;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 36px;
+    }
+    /* 登入前 */
+    #rightmenu{
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #rightmenu>#login_before_mobile>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #rightmenu>#login_after_mobile{
+        display: none;
+    }
+    /* 登入後 */
+    #rightmenu_login{
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #rightmenu_login>#login_after_mobile>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #rightmenu_login>#login_before_mobile{
+        display: none;
+    }
+
+    /*會員*/
+    #member{
+        width: 100%;
+        height: 773px;
+    }
+    #member_container{
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 80%;
+        height: 600px;
+        top: 70px;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+    }
+
+    /*底部*/
+    #bottom{
+        display: none;
+    }
+    #bottom_mobile{
+        display: block;
+        width: 100%;
+        height: 75px;
+        margin-top: -16px;
+        background: #212121;
+        box-sizing: border-box;
+        box-shadow: #F7BC00 0 0 1px;
+    }
+    #bottom_btn{
+        display: block;
+        margin: auto;
+        width: 255px;
+        position: relative;
+        top: 10px;
+        font-size: 8px;
+    }
+    #bottom_btn>li{
+        display: inline;
+        color: rgb(174, 164, 164);
+    }
+    #bottom_btn a{
+        color: rgb(174, 164, 164);
+    }
+    #bottom_text{
+        position: relative;
+        top: 5px;
+        font-size: 8px;
+        text-align: center;
+        color: rgb(174, 164, 164);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #member{
+        width: 100%;
+        height: 781px;
+    }
+    #member_container{
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 450px;
+        top: 70px;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+    }
+    .file_name{
+        font-size: 14px;
+    }
+    .file_text{
+        font-size: 14px;
+    }
+    .fa-wrench{
+        position: relative;
+        top: 18px;
+        margin-right: 5px;
+        font-size: 14px;
+        color: #724DFF;
+    }
+    #member_title{
+        position: relative;
+        top: 35px;
+        text-align: center;
+        font-size: 24px;
     }
 }

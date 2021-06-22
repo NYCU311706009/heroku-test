@@ -4,6 +4,7 @@ package com.example.demo.Entity;
 
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,6 +37,15 @@ public class Customer implements UserDetails {
     private String phone;       //電話號碼      pattern="^09[0-9]{8}$
     private String email;       //信箱
     private boolean isLogin;    //登入狀態
+
+//    public boolean isValid() {
+//        return isValid;
+//    }
+//
+//    public void setValid(boolean valid) {
+//        isValid = valid;
+//    }
+
     private boolean isValid;    //驗證信
 
 
@@ -138,7 +148,7 @@ public class Customer implements UserDetails {
         }
 
         public Builder setValid(boolean valid) {
-            isValid = true;
+            isValid = false;
             return this;
         }
         public Customer build() {

@@ -125,6 +125,10 @@ body{
 #top_right_login>#login_before{
     display: none;
 }
+/*手機選單*/
+#top_container_mobile{
+    display: none;
+}
 #blocker{
     padding-top: 46px;
 }
@@ -419,10 +423,13 @@ body{
     position: relative;
     top: 10px;
     float: right;
-    color: gray;
+    color: rgb(174, 164, 164);
+}
+#bottom_mobile{
+    display: none;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1800px) {
     /*選單*/
     #top_left{
         left: 0%;
@@ -532,5 +539,181 @@ body{
     #bottom_container{
         width: 99.8%;
         left: 0.1%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    /*選單*/
+    #top_container{
+        display: none;
+    }
+    #top_container_mobile{
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        height: 75px;
+        margin: 0;
+        z-index: 2;
+        background-color: #212121;
+        opacity: 0.8;
+        box-shadow: #F7BC00 0 0 1px;
+        box-sizing: border-box;
+    }
+    #leftbtn{
+        position: relative;
+        top: 7.5px;
+        left: 30px;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 36px;
+    }
+    #leftmenu{
+        display: none;
+        position: absolute;
+        top: 75px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #leftmenu>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #top_logo_mobile{
+        position: relative;
+        top: 7.5px;
+        left: 10px;
+    }
+    #rightbtn{
+        position: relative;
+        top: 7.5px;
+        right: 30px;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 36px;
+    }
+    /* 登入前 */
+    #rightmenu{
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #rightmenu>#login_before_mobile>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #rightmenu>#login_after_mobile{
+        display: none;
+    }
+    /* 登入後 */
+    #rightmenu_login{
+        display: none;
+        position: absolute;
+        top: 75px;
+        right: 0px;
+        background-color: whitesmoke;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #rightmenu_login>#login_after_mobile>a {
+        color: black;
+        padding: 12px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+    #rightmenu_login>#login_before_mobile{
+        display: none;
+    }
+    
+
+    /*下單*/
+    .est{
+        display: none;
+    }
+    #order_progress{
+        display: none;
+    }
+    #order_container{
+        position: relative;
+        float: none;
+        width: 80%;
+        height: 620px;
+        top: 50px;
+        margin-left: 23.5%;
+        padding-top: 1px;
+    }
+
+    /*底部*/
+    #bottom{
+        display: none;
+    }
+    #bottom_mobile{
+        display: block;
+        width: 100%;
+        height: 75px;
+        margin-top: -16px;
+        background: #212121;
+        box-sizing: border-box;
+        box-shadow: #F7BC00 0 0 1px;
+    }
+    #bottom_btn{
+        display: block;
+        margin: auto;
+        width: 255px;
+        position: relative;
+        top: 10px;
+        font-size: 8px;
+    }
+    #bottom_btn>li{
+        display: inline;
+        color: rgb(174, 164, 164);
+    }
+    #bottom_btn a{
+        color: rgb(174, 164, 164);
+    }
+    #bottom_text{
+        position: relative;
+        top: 5px;
+        font-size: 8px;
+        text-align: center;
+        color: rgb(174, 164, 164);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #order_container{
+        position: relative;
+        float: none;
+        width: 100%;
+        height: 620px;
+        top: 50px;
+        margin-left: 12%;
+        padding-top: 1px;
+    }
+    #order2_submit{
+        position: relative;
+        width: 100px;
+        height: 40px;
+        left: 25%;
+        font-size: 18px;
+        font-weight: bolder;
+        line-height: 38px;
+        text-decoration: none;
+        color: #724DFF;
+        background: white;
+        border: 1.5px #3079ED solid;
+        border-radius: 5px;
     }
 }

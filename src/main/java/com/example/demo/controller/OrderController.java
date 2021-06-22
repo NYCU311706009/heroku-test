@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.Entity.CreditCardParams;
 import com.example.demo.Entity.OrderParams;
+import com.example.demo.service.LoginService;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class OrderController {
     @Autowired
     OrderService orderService;
+    @Autowired
+    LoginService loginService;
+
+
 
     private static OrderParams mOrderParams;
     private static Authentication auth;
@@ -24,15 +29,23 @@ public class OrderController {
         if (auth.getName().equals("anonymousUser")){
             return "redirect:/index";
         }
-        stayLogin(model,auth);
-
-
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+             .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login");
         return "order";
     }
 
     @PostMapping("/order")
     public String orderPost(Model model,OrderParams orderParams){
-        stayLogin(model,auth);
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login");
         if (orderParams!=null){
             mOrderParams = orderParams;
             mOrderParams.setOwner(auth.getName());
@@ -44,7 +57,14 @@ public class OrderController {
     @GetMapping("/order2")
     public String order2Get(Model model){
         try{
-            stayLogin(model,auth);
+            auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth.getName().equals("anonymousUser")){
+                return "redirect:/index";
+            }
+            System.out.println("It's "+auth.getName());
+            model.addAttribute("isLogin",true)
+                    .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                    .addAttribute("rightmenu", "rightmenu_login");
             System.out.println("order2:"+mOrderParams.toString());
             return "order2";
         }catch(Exception e){
@@ -55,7 +75,13 @@ public class OrderController {
 
     @PostMapping("/order2")
     public String order2Post(Model model,CreditCardParams creditCardParams){
-        stayLogin(model,auth);
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName());
         if(creditCardParams!=null){
             System.out.println(creditCardParams.toString());
             mOrderParams.setCreditCardParams(creditCardParams);
@@ -67,7 +93,14 @@ public class OrderController {
     @GetMapping("/order3")
     public String order3Get(Model model){
         try{
-            stayLogin(model,auth);
+            auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth.getName().equals("anonymousUser")){
+                return "redirect:/index";
+            }
+            System.out.println("It's "+auth.getName());
+            model.addAttribute("isLogin",true)
+                    .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                    .addAttribute("rightmenu", "rightmenu_login");
             mOrderParams.getOilType();
 
             System.out.println("order3:"+mOrderParams.getOwner());
@@ -110,27 +143,58 @@ public class OrderController {
 
     @PostMapping("/order3")
     public String order3Post(Model model){
-        stayLogin(model,auth);
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName());
         return "redirect:/order4";
     }
     @GetMapping("/order4")
     public String order4Get(Model model){
-        stayLogin(model,auth);
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login")
+                .addAttribute("cvvError",false);
         return "/order4";
     }
 
     @PostMapping("/order4")
     public String order4Post(Model model ,String cardCvv){
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login");
         if (cardCvv.equals(mOrderParams.getCreditCardParams().getCardCvv())){
             orderService.saveOrder(mOrderParams);
             return "redirect:/order5";
         }
+        model.addAttribute("cvvError",true);
+
         return "order4";
     }
     @GetMapping("/order5")
     public String order5Get(Model model){
         try{
-            stayLogin(model,auth);
+            auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth.getName().equals("anonymousUser")){
+                return "redirect:/index";
+            }
+            System.out.println("It's "+auth.getName());
+            model.addAttribute("isLogin",true)
+                    .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                    .addAttribute("rightmenu", "rightmenu_login");
             System.out.println("order5:"+mOrderParams.getOwner());
             model
                     .addAttribute("oilType",mOrderParams.getOilType())
@@ -145,15 +209,18 @@ public class OrderController {
     }
 
     @PostMapping("/order5")
-    public String order5Post(){
+    public String order5Post(Model model){
+        auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getName().equals("anonymousUser")){
+            return "redirect:/index";
+        }
+        System.out.println("It's "+auth.getName());
+        model.addAttribute("isLogin",true)
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName());
         return "order5";
     }
 
 
-    public void stayLogin(Model model,Authentication auth){
-        model.addAttribute("isLogin",true)
-             .addAttribute("username", auth.getName());
-    }
 
 
 

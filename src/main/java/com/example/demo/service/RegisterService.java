@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.Entity.Customer;
-import com.example.demo.Entity.RegisterParams;
-import com.example.demo.Entity.UserRole;
+import com.example.demo.Entity.*;
+import com.example.demo.Repository.ConfirmationTokenRepository;
 import com.example.demo.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -10,13 +9,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class RegisterService {
     @Autowired
     CustomerRepository customerRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
+    @Autowired
+    ConfirmationTokenRepository confirmationTokenRepository;
+    @Autowired
+    EmailService emailService;
 
     public void register(RegisterParams registerParams){
         Customer customer = new Customer.Builder()
@@ -32,8 +36,18 @@ public class RegisterService {
                 .setRole(UserRole.USER)
                 .build();
         customerRepository.save(customer);
-        System.out.println("save");
-        System.out.println(customerRepository.findByUsername(registerParams.getUsername()).toString());
+        Customer c = customerRepository.findByUsername(registerParams.getUsername());
+        System.out.println(c.toString());
+        //TODO: Email Verification
+        //Create token
+        String token = UUID.randomUUID().toString();
+        CurrentTime currentTime = new CurrentTime();
+        ConfirmationToken confirmationToken = new ConfirmationToken(customer.getUsername(), token,currentTime.getTime());
+        confirmationTokenRepository.save(confirmationToken);
+        //Send mail
+        EmailSender emailSender = new EmailSender(c.getEmail(),c.getUsername(),token);
+        String url = emailSender.getUrl();
+        emailService.send(c.getEmail(),url);
     }
 
 
@@ -43,6 +57,13 @@ public class RegisterService {
     public Boolean isExist(RegisterParams registerParams){
         String registerUsername = registerParams.getUsername();
         if(customerRepository.findByUsername(registerUsername)!=null){
+            return true;
+        }
+        return false;
+    }
+    public Boolean isExistByEmail(RegisterParams registerParams){
+        String email = registerParams.getEmail();
+        if(customerRepository.findByEmail(email)!=null){
             return true;
         }
         return false;

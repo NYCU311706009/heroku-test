@@ -27,7 +27,8 @@ public class MemberController {
         Customer curr = loginService.loadUserByUsername(auth.getName());
         model
                 .addAttribute("isLogin",true)
-                .addAttribute("chineseName", curr.getChineseName());
+                .addAttribute("chineseName", curr.getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login");
 
         model
                 .addAttribute("username",curr.getUsername())
@@ -45,7 +46,8 @@ public class MemberController {
             return "index";
         }
         model.addAttribute("isLogin",true)
-                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName());
+                .addAttribute("chineseName", loginService.loadUserByUsername(auth.getName()).getChineseName())
+                .addAttribute("rightmenu", "rightmenu_login");
 
         Customer curr = loginService.loadUserByUsername(auth.getName());
         String username = (String) model.getAttribute("username");

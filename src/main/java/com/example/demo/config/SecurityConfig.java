@@ -6,6 +6,7 @@ import com.example.demo.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -61,9 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/index","/login","/register","/register2","/resources/**","/js/**","/css/**","/images/*","/img/*","/fonts/**","/**/*.png","/**/*.jpg").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                .antMatchers("/index","/login","/register","/register2","/about","/disclaimer","/rights","/terms","/service","/privacy","/api/**",
+                        "/resources/**","/js/**","/css/**","/images/*","/img/*","/fonts/**","/**/*.png","/**/*.jpg")
+                .permitAll().anyRequest().authenticated();
+
+        http
                     .formLogin()
                     .loginPage("/login").permitAll()
                     .loginProcessingUrl("/login")
